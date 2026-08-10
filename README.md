@@ -1,18 +1,11 @@
-# The Veteran File Resource Finder — V2 + GA4 + Mobile Fix
+# The Veteran File — V2 + GA4 + Native Mobile Menu Fix
 
-Google Analytics 4 Measurement ID: `G-9SM2Y9CTRG`
+This build replaces the JavaScript-dependent top-right mobile menu with a native HTML `<details>` menu.
 
-Fixes:
-- Corrected a JavaScript syntax error that prevented interactive controls from working.
-- Added mobile touch safeguards.
-- Keeps GA4 page-view and interaction tracking.
-- Keeps the TikTok creator embed.
-
-Tracked custom events:
-- `resource_click`
-- `wizard_choice`
-- `zip_search_used`
-
-The ZIP code itself is not sent to Google Analytics.
+Why this is more reliable:
+- The Menu button opens even if JavaScript fails.
+- It is touch-friendly on iPhone and Android.
+- It keeps desktop navigation unchanged.
+- GA4 remains installed with Measurement ID `G-9SM2Y9CTRG`.
 
 Deploy by replacing the files inside the existing `veteran-file-site` folder in GitHub.

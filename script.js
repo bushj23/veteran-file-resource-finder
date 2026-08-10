@@ -14,7 +14,7 @@ rep:{title:"Find accredited help",text:"Use VA's official accreditation tools. V
 housing:{title:"Get housing support",text:"VA has programs for veterans who are homeless or at risk of homelessness, plus home-loan and housing assistance resources.",url:"https://www.va.gov/homeless/",label:"Open housing help"}
 };
 document.querySelectorAll("[data-path]").forEach(b=>b.onclick=()=>{const p=paths[b.dataset.path],r=$("#wizardResult");r.innerHTML=`<h3>${p.title}</h3><p>${p.text}</p><a href="${p.url}" target="_blank">${p.label} →</a>`;r.hidden=false;r.scrollIntoView({behavior:"smooth",block:"nearest"});});
-$("#menuBtn").onclick=()=>$("#mainNav").classList.toggle("open");document.querySelectorAll("#mainNav a").forEach(a=>a.onclick=()=>$("#mainNav").classList.remove("open"));
+
 $("#year").textContent=new Date().getFullYear();
 
 // Google Analytics interaction tracking
@@ -55,3 +55,10 @@ if (gaZipButton) {
     }
   });
 }
+
+document.querySelectorAll("#mobileNav a").forEach(link => {
+  link.addEventListener("click", () => {
+    const details = document.querySelector(".mobile-menu");
+    if (details) details.removeAttribute("open");
+  });
+});
