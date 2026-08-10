@@ -1,108 +1,18 @@
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => [...document.querySelectorAll(selector)];
-
-const zipInput = $('#zipInput');
-const zipStatus = $('#zipStatus');
-const saveZipBtn = $('#saveZipBtn');
-const menuBtn = $('#menuBtn');
-const mainNav = $('#mainNav');
-
-function cleanZip(value) {
-  return (value || '').trim().replace(/[^0-9-]/g, '').slice(0, 10);
-}
-
-function updateRepLinks(zip) {
-  $$('.rep-link').forEach((link) => {
-    const type = link.dataset.type;
-    const base = 'https://www.va.gov/get-help-from-accredited-representative/find-rep/';
-    if (zip) {
-      const params = new URLSearchParams({ address: zip, distance: '50', page: '1', perPage: '10', sort: 'distance_asc', type });
-      link.href = `${base}?${params.toString()}`;
-    } else {
-      link.href = base;
-    }
-  });
-}
-
-function saveZip() {
-  const zip = cleanZip(zipInput.value);
-  if (!/^\d{5}(-\d{4})?$/.test(zip)) {
-    zipStatus.textContent = 'Enter a valid 5-digit ZIP code.';
-    zipStatus.style.color = '#a70d1d';
-    return;
-  }
-  localStorage.setItem('tvfZip', zip);
-  updateRepLinks(zip);
-  zipStatus.textContent = `ZIP ${zip} saved. Representative links will use it when possible.`;
-  zipStatus.style.color = '#315c40';
-}
-
-saveZipBtn.addEventListener('click', saveZip);
-zipInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') saveZip(); });
-
-const savedZip = localStorage.getItem('tvfZip');
-if (savedZip) {
-  zipInput.value = savedZip;
-  updateRepLinks(savedZip);
-}
-
-menuBtn.addEventListener('click', () => {
-  const open = mainNav.classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', String(open));
-});
-
-$$('#mainNav a').forEach((link) => link.addEventListener('click', () => {
-  mainNav.classList.remove('open');
-  menuBtn.setAttribute('aria-expanded', 'false');
-}));
-
-const paths = {
-  first: {
-    title: 'Start with VA’s disability claim guide',
-    text: 'Review what evidence you may need, then start your claim on VA.gov. If you want help, use the accredited-representative finder.',
-    href: 'https://www.va.gov/disability/how-to-file-claim/',
-    label: 'Open the official claim guide'
-  },
-  increase: {
-    title: 'Review how VA handles increased-rating claims',
-    text: 'If a service-connected condition has worsened, VA explains how to file for an increase and what evidence can support the request.',
-    href: 'https://www.va.gov/disability/how-to-file-claim/when-to-file/',
-    label: 'Review when to file'
-  },
-  denied: {
-    title: 'Choose the right decision-review option',
-    text: 'VA lists the available review paths, including Higher-Level Review, Supplemental Claims, and Board Appeals.',
-    href: 'https://www.va.gov/decision-reviews/',
-    label: 'Compare decision-review options'
-  },
-  health: {
-    title: 'Find VA health care near you',
-    text: 'Use the official VA locator to search for medical centers, clinics, and other nearby VA facilities.',
-    href: 'https://www.va.gov/find-locations/',
-    label: 'Find VA health care'
-  },
-  rep: {
-    title: 'Find VA-accredited help',
-    text: 'Search for a VSO representative, accredited attorney, or accredited claims agent. VSO representation on VA benefit claims is free.',
-    href: 'https://www.va.gov/get-help-from-accredited-representative/find-rep/',
-    label: 'Find an accredited representative'
-  },
-  housing: {
-    title: 'Open VA housing assistance',
-    text: 'VA provides resources for veterans who are homeless or at risk, along with information on home loans and housing grants.',
-    href: 'https://www.va.gov/housing-assistance/',
-    label: 'Open housing assistance'
-  }
+const $=s=>document.querySelector(s);const zip=$("#zipInput"),current=$("#currentZip"),status=$("#zipStatus"),toast=$("#toast");
+function valid(v){return /^\d{5}$/.test(v)}
+function load(){const z=localStorage.getItem("tvfZip");if(z){zip.value=z;current.textContent=z}}load();
+$("#saveZipBtn").onclick=()=>{const z=zip.value.trim();if(!valid(z)){status.textContent="Enter a valid 5-digit ZIP code.";return}localStorage.setItem("tvfZip",z);current.textContent=z;status.textContent="ZIP saved on this device.";show("ZIP saved");};
+$("#clearZipBtn").onclick=()=>{localStorage.removeItem("tvfZip");zip.value="";current.textContent="Not set";status.textContent="ZIP cleared.";};
+document.querySelectorAll(".copy-zip").forEach(b=>b.onclick=async()=>{const z=localStorage.getItem("tvfZip")||zip.value.trim();if(!valid(z)){status.textContent="Enter and save your ZIP first.";zip.focus();return}await navigator.clipboard.writeText(z);show("ZIP "+z+" copied — paste it into the official search.");});
+function show(t){toast.textContent=t;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),2400)}
+const paths={
+first:{title:"Start a disability claim",text:"Review VA's filing guide, gather supporting evidence, and consider free help from an accredited VSO.",url:"https://www.va.gov/disability/how-to-file-claim/",label:"Open VA filing guide"},
+increase:{title:"Request an increased rating",text:"VA treats this as an increased disability compensation claim. Review what evidence can support that your service-connected condition has worsened.",url:"https://www.va.gov/disability/how-to-file-claim/when-to-file/",label:"Review when to file"},
+denied:{title:"Choose a decision review option",text:"Compare Higher-Level Review, Supplemental Claim, and Board Appeal. The right lane depends on what you disagree with and whether you have new evidence.",url:"https://www.va.gov/decision-reviews/",label:"Compare review options"},
+health:{title:"Find VA health care",text:"Use the official VA location finder for medical centers, outpatient clinics, and other VA facilities.",url:"https://www.va.gov/find-locations/",label:"Find VA locations"},
+rep:{title:"Find accredited help",text:"Use VA's official accreditation tools. VSO representation is available free of charge; attorneys and claims agents may charge fees in permitted situations.",url:"https://www.va.gov/get-help-from-accredited-representative/",label:"Find accredited help"},
+housing:{title:"Get housing support",text:"VA has programs for veterans who are homeless or at risk of homelessness, plus home-loan and housing assistance resources.",url:"https://www.va.gov/homeless/",label:"Open housing help"}
 };
-
-$$('.wizard-options button').forEach((button) => {
-  button.addEventListener('click', () => {
-    const item = paths[button.dataset.path];
-    const result = $('#wizardResult');
-    result.hidden = false;
-    result.innerHTML = `<h3>${item.title}</h3><p>${item.text}</p><a href="${item.href}" target="_blank" rel="noopener">${item.label} →</a>`;
-    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  });
-});
-
-$('#year').textContent = new Date().getFullYear();
+document.querySelectorAll("[data-path]").forEach(b=>b.onclick=()=>{const p=paths[b.dataset.path],r=$("#wizardResult");r.innerHTML=`<h3>${p.title}</h3><p>${p.text}</p><a href="${p.url}" target="_blank">${p.label} →</a>`;r.hidden=false;r.scrollIntoView({behavior:"smooth",block:"nearest"};});
+$("#menuBtn").onclick=()=>$("#mainNav").classList.toggle("open");document.querySelectorAll("#mainNav a").forEach(a=>a.onclick=()=>$("#mainNav").classList.remove("open"));
+$("#year").textContent=new Date().getFullYear();
