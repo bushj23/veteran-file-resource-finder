@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The Veteran File Resource Finder helps veterans quickly find official VA facilities, accredited representatives, Vet Centers, housing support, and benefit resources." />
+  <meta name="theme-color" content="#07162f" />
+  <title>The Veteran File Resource Finder</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="#top" aria-label="The Veteran File home">
+        <img src="assets/logo.png" alt="The Veteran File logo" />
+        <span>Resource Finder</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">Menu</button>
+      <nav id="mainNav" class="main-nav" aria-label="Primary navigation">
+        <a href="#resources">Find Help</a>
+        <a href="#start">Where Do I Start?</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="https://www.tiktok.com/@the.veteran.file" target="_blank" rel="noopener">TikTok</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">FREE • INDEPENDENT • VETERAN-FOCUSED</p>
+          <h1>Veteran help should be easier to find.</h1>
+          <p class="lead">Use The Veteran File Resource Finder to get to official VA facilities, accredited claims help, Vet Centers, housing resources, and benefit information without digging through dozens of pages.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#resources">Find veteran resources</a>
+            <a class="btn secondary" href="#start">I don't know where to start</a>
+          </div>
+          <p class="trust-note">No paywall. No claim-selling. Official resources first.</p>
+        </div>
+        <div class="hero-logo-card" aria-hidden="true">
+          <img src="assets/logo.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-strip" aria-label="Emergency resources">
+      <div class="shell quick-strip-inner">
+        <strong>Need urgent support?</strong>
+        <span>Veterans Crisis Line: call <a href="tel:988">988</a>, then press 1, or text <a href="sms:838255">838255</a>.</span>
+        <a href="https://www.veteranscrisisline.net/" target="_blank" rel="noopener">Open Crisis Line</a>
+      </div>
+    </section>
+
+    <section class="section" id="resources">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">RESOURCE FINDER</p>
+            <h2>What do you need help finding?</h2>
+          </div>
+          <p>Start with a category. Whenever possible, these links send you directly to an official VA locator or accredited-representative tool.</p>
+        </div>
+
+        <div class="finder-box">
+          <label for="zipInput">Your ZIP code</label>
+          <div class="zip-row">
+            <input id="zipInput" inputmode="numeric" autocomplete="postal-code" maxlength="10" placeholder="Example: 29073" aria-describedby="zipHelp" />
+            <button class="btn primary" id="saveZipBtn" type="button">Save ZIP</button>
+          </div>
+          <p id="zipHelp" class="helper">Your ZIP stays in your browser. It is used only to make the resource links easier to use.</p>
+          <p id="zipStatus" class="status" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="card-grid resource-grid">
+          <article class="resource-card featured">
+            <div class="icon">🏥</div>
+            <h3>VA health care</h3>
+            <p>Find VA medical centers, outpatient clinics, and other VA facilities.</p>
+            <a class="card-link" href="https://www.va.gov/find-locations/" target="_blank" rel="noopener">Find a VA location →</a>
+          </article>
+
+          <article class="resource-card">
+            <div class="icon">📄</div>
+            <h3>Free VSO help</h3>
+            <p>Search for a VA-accredited Veterans Service Organization representative.</p>
+            <a class="card-link rep-link" data-type="veteran_service_officer" href="https://www.va.gov/get-help-from-accredited-representative/find-rep/" target="_blank" rel="noopener">Find a VSO →</a>
+          </article>
+
+          <article class="resource-card">
+            <div class="icon">⚖️</div>
+            <h3>Accredited attorneys</h3>
+            <p>Search VA's accreditation database for attorneys who may represent veterans on benefit matters.</p>
+            <a class="card-link rep-link" data-type="attorney" href="https://www.va.gov/get-help-from-accredited-representative/find-rep/" target="_blank" rel="noopener">Find an attorney →</a>
+          </article>
+
+          <article class="resource-card">
+            <div class="icon">🧾</div>
+            <h3>Accredited claims agents</h3>
+            <p>Find claims agents who are accredited by VA.</p>
+            <a class="card-link rep-link" data-type="claim_agent" href="https://www.va.gov/get-help-from-accredited-representative/find-rep/" target="_blank" rel="noopener">Find a claims agent →</a>
+          </article>
+
+          <article class="resource-card">
+            <div class="icon">💬</div>
+            <h3>Vet Centers</h3>
+            <p>Learn about confidential readjustment counseling and local Vet Center services.</p>
+            <a class="card-link" href="https://www.vetcenter.va.gov/" target="_blank" rel="noopener">Find Vet Center help →</a>
+          </article>
+
+          <article class="resource-card">
+            <div class="icon">🏢</div>
+            <h3>VA regional offices</h3>
+            <p>Find VA benefit offices and other nearby VA locations.</p>
+            <a class="card-link" href="https://www.va.gov/find-locations/" target="_blank" rel="noopener">Find an office →</a>
+          </article>
+
+          <article class="resource-card">
+            <div class="icon">🏠</div>
+            <h3>Housing assistance</h3>
+            <p>Find VA help for homelessness, housing instability, home loans, and housing grants.</p>
+            <a class="card-link" href="https://www.va.gov/housing-assistance/" target="_blank" rel="noopener">Open housing resources →</a>
+          </article>
+
+          <article class="resource-card">
+            <div class="icon">🇺🇸</div>
+            <h3>All VA benefits</h3>
+            <p>Go to the official VA benefits hub for disability, education, careers, insurance, burial, and more.</p>
+            <a class="card-link" href="https://www.va.gov/" target="_blank" rel="noopener">Open VA.gov →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="start">
+      <div class="shell start-grid">
+        <div>
+          <p class="eyebrow">NOT SURE WHERE TO START?</p>
+          <h2>Tell us what you're trying to do.</h2>
+          <p class="lead-small">Choose the option that sounds closest to your situation. This is a navigation tool—not legal, medical, or claims advice.</p>
+        </div>
+
+        <div class="wizard" id="wizard">
+          <div class="wizard-options" role="group" aria-label="Choose what you need help with">
+            <button data-path="first">I'm filing my first disability claim</button>
+            <button data-path="increase">I want to request an increase</button>
+            <button data-path="denied">My claim was denied</button>
+            <button data-path="health">I need VA health care</button>
+            <button data-path="rep">I want someone to help with my claim</button>
+            <button data-path="housing">I need housing or financial help</button>
+          </div>
+          <div id="wizardResult" class="wizard-result" hidden></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="benefits">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">BENEFITS LIBRARY</p>
+            <h2>Start with the basics.</h2>
+          </div>
+          <p>Version 1 keeps these guides concise and sends you to the official VA page for the current rules and forms.</p>
+        </div>
+
+        <div class="card-grid guide-grid">
+          <a class="guide-card" href="https://www.va.gov/disability/how-to-file-claim/" target="_blank" rel="noopener"><span>01</span><h3>File a disability claim</h3><p>What you need and how to submit a claim.</p></a>
+          <a class="guide-card" href="https://www.va.gov/resources/your-intent-to-file-a-va-claim/" target="_blank" rel="noopener"><span>02</span><h3>Intent to File</h3><p>Understand how an Intent to File may protect an effective date.</p></a>
+          <a class="guide-card" href="https://www.va.gov/decision-reviews/" target="_blank" rel="noopener"><span>03</span><h3>Decision reviews</h3><p>Higher-Level Review, Supplemental Claims, and Board Appeals.</p></a>
+          <a class="guide-card" href="https://www.va.gov/disability/va-claim-exam/" target="_blank" rel="noopener"><span>04</span><h3>C&amp;P exams</h3><p>What a VA claim exam is and what to expect.</p></a>
+          <a class="guide-card" href="https://www.va.gov/education/" target="_blank" rel="noopener"><span>05</span><h3>Education benefits</h3><p>GI Bill and other education and training programs.</p></a>
+          <a class="guide-card" href="https://www.va.gov/housing-assistance/home-loans/" target="_blank" rel="noopener"><span>06</span><h3>VA home loans</h3><p>Eligibility, certificates, and VA-backed loan information.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="shell about-grid">
+        <div>
+          <p class="eyebrow">ABOUT THE VETERAN FILE</p>
+          <h2>Built to make veteran resources less frustrating to find.</h2>
+        </div>
+        <div>
+          <p>The Veteran File Resource Finder is an independent resource hub that organizes official links and trusted starting points for veterans, service members, families, and caregivers.</p>
+          <p><strong>Important:</strong> The Veteran File is not the U.S. Department of Veterans Affairs and is not affiliated with or endorsed by VA. This website does not provide legal or medical advice and does not guarantee any VA claim outcome.</p>
+          <a class="btn secondary dark-text" href="https://www.tiktok.com/@the.veteran.file" target="_blank" rel="noopener">Follow @the.veteran.file</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="The Veteran File" />
+        <p>Helping veterans find the right place to start.</p>
+      </div>
+      <div>
+        <h3>Official resources</h3>
+        <a href="https://www.va.gov/" target="_blank" rel="noopener">VA.gov</a>
+        <a href="https://www.va.gov/find-locations/" target="_blank" rel="noopener">VA Facility Locator</a>
+        <a href="https://www.va.gov/get-help-from-accredited-representative/find-rep/" target="_blank" rel="noopener">Accredited Representative Finder</a>
+      </div>
+      <div>
+        <h3>Connect</h3>
+        <a href="https://www.tiktok.com/@the.veteran.file" target="_blank" rel="noopener">TikTok</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+    <div class="shell footer-bottom">
+      <p>© <span id="year"></span> The Veteran File. Independent veteran resource website.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
