@@ -15,14 +15,24 @@
   gtag('config', 'G-9SM2Y9CTRG');
 </script>
 
+
+<script>
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  window.addEventListener("pageshow", function () {
+    if (!location.hash) window.scrollTo(0, 0);
+  });
+</script>
+
 </head>
 <body>
 <header class="site-header"><div class="shell nav-wrap">
 <a class="brand" href="#top"><img src="assets/logo.png" alt="The Veteran File"><div><strong>The Veteran File</strong><span>Resource Finder</span></div></a>
-<details class="mobile-menu">
-<summary class="menu-btn">Menu</summary>
+<div class="mobile-menu">
+<input type="checkbox" id="mobileMenuToggle" class="mobile-menu-toggle" aria-hidden="true">
+<label for="mobileMenuToggle" class="menu-btn" role="button" aria-label="Open navigation menu">Menu</label>
 <nav id="mobileNav"><a href="#finder">Find Help</a><a href="#start">Where Do I Start?</a><a href="#benefits">Benefits</a><a href="#states">State Benefits</a><a href="#latest">Latest TikTok</a><a class="nav-cta" href="https://www.tiktok.com/@the.veteran.file" target="_blank" data-track="TikTok Profile">TikTok ↗</a></nav>
-</details>
+</div>
 <nav id="mainNav"><a href="#finder">Find Help</a><a href="#start">Where Do I Start?</a><a href="#benefits">Benefits</a><a href="#states">State Benefits</a><a href="#latest">Latest TikTok</a><a class="nav-cta" href="https://www.tiktok.com/@the.veteran.file" target="_blank" data-track="TikTok Profile">TikTok ↗</a></nav>
 </div></header>
 
@@ -58,14 +68,32 @@
 </div></section>
 <section class="section dark" id="start"><div class="shell">
 <div class="section-heading"><div><span class="kicker">WHERE DO I START?</span><h2>Pick the situation closest to yours.</h2></div><p>This provides a starting point, not a claim prediction.</p></div>
-<div class="wizard">
-<button data-path="first"><strong>First disability claim</strong><small>I haven't filed before</small></button>
-<button data-path="increase"><strong>Condition got worse</strong><small>I want an increase</small></button>
-<button data-path="denied"><strong>Claim was denied</strong><small>I need a decision review</small></button>
-<button data-path="health"><strong>Need VA health care</strong><small>Facilities or enrollment help</small></button>
-<button data-path="rep"><strong>Want claim help</strong><small>Find an accredited representative</small></button>
-<button data-path="housing"><strong>Housing trouble</strong><small>Homeless or at risk</small></button>
-</div><div id="wizardResult" class="wizard-result" hidden></div>
+<div class="wizard native-wizard">
+<details>
+  <summary><strong>First disability claim</strong><small>I haven't filed before</small></summary>
+  <div class="wizard-answer"><p>Review VA's filing guide, gather supporting evidence, and consider free help from an accredited VSO.</p><a href="https://www.va.gov/disability/how-to-file-claim/" target="_blank">Open VA filing guide →</a></div>
+</details>
+<details>
+  <summary><strong>Condition got worse</strong><small>I want an increase</small></summary>
+  <div class="wizard-answer"><p>VA treats this as an increased disability compensation claim. Review what evidence can support that your service-connected condition has worsened.</p><a href="https://www.va.gov/disability/how-to-file-claim/when-to-file/" target="_blank">Review when to file →</a></div>
+</details>
+<details>
+  <summary><strong>Claim was denied</strong><small>I need a decision review</small></summary>
+  <div class="wizard-answer"><p>Compare Higher-Level Review, Supplemental Claim, and Board Appeal. The right lane depends on what you disagree with and whether you have new evidence.</p><a href="https://www.va.gov/decision-reviews/" target="_blank">Compare review options →</a></div>
+</details>
+<details>
+  <summary><strong>Need VA health care</strong><small>Facilities or enrollment help</small></summary>
+  <div class="wizard-answer"><p>Use the official VA location finder for medical centers, outpatient clinics, and other VA facilities.</p><a href="https://www.va.gov/find-locations/" target="_blank">Find VA locations →</a></div>
+</details>
+<details>
+  <summary><strong>Want claim help</strong><small>Find an accredited representative</small></summary>
+  <div class="wizard-answer"><p>Use VA's official accreditation tools. Accredited VSO representatives can help with claims at no charge.</p><a href="https://www.va.gov/get-help-from-accredited-representative/" target="_blank">Find accredited help →</a></div>
+</details>
+<details>
+  <summary><strong>Housing trouble</strong><small>Homeless or at risk</small></summary>
+  <div class="wizard-answer"><p>VA has programs for veterans who are homeless or at risk of homelessness, plus home-loan and housing assistance resources.</p><a href="https://www.va.gov/homeless/" target="_blank">Open housing help →</a></div>
+</details>
+</div>
 </div></section>
 
 <section class="section" id="benefits"><div class="shell">
