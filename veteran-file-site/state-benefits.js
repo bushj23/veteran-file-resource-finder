@@ -87,5 +87,18 @@ window.addEventListener("popstate",()=>{
   loadState(slug,{push:false});
 });
 
-const initial=new URL(location.href).searchParams.get("state")||"";
-if(initial) loadState(initial,{push:false});
+const pathParts = location.pathname.split("/").filter(Boolean);
+
+const pathState =
+  pathParts[0] === "state-benefits" && pathParts[1]
+    ? pathParts[1]
+    : "";
+
+const queryState =
+  new URL(location.href).searchParams.get("state") || "";
+
+const initial = pathState || queryState;
+
+if (initial) {
+  loadState(initial, { push: false });
+}
