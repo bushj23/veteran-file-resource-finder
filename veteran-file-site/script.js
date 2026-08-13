@@ -165,3 +165,20 @@ if (facilityZip) {
     if (event.key === "Enter") searchVAFacilities();
   });
 }
+
+// Keep mobile refreshes from jumping back to an old anchor section.
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+window.addEventListener("pageshow", () => {
+  if (location.hash) {
+    history.replaceState(null, "", location.pathname + location.search);
+  }
+
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "auto"
+  });
+});
