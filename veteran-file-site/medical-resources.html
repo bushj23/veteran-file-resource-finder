@@ -140,32 +140,198 @@
     </div>
   </section>
 
- <section class="section medical-listing-note" id="provider-listing">
-    <div class="shell medical-listing-inner">
+<section class="section medical-listing-note" id="provider-listing">
+  <div class="shell">
+
+    <div class="section-heading">
       <div>
         <span class="kicker">PROVIDER LISTINGS</span>
-        <h2>Want your practice considered for the directory?</h2>
-        <p>Provider submissions will be reviewed before publication. The Veteran File may verify basic credentials, services, and public practice information before a listing is added.</p>
-        <a
-  class="btn primary"
-  href="mailto:info@theveteranfile.org?subject=Provider%20Listing%20Request%20-%20The%20Veteran%20File&body=Hello%20The%20Veteran%20File%2C%0A%0AI%20would%20like%20to%20request%20consideration%20for%20the%20Independent%20Medical%20Resources%20directory.%0A%0AProvider%20or%20Practice%20Name%3A%0ACredentials%3A%0ASpecialty%3A%0AProfessional%20Email%3A%0APhone%3A%0AWebsite%3A%0AStates%20Licensed%2FPracticing%20In%3A%0ATelehealth%20Available%3A%20Yes%2FNo%0AServices%20Offered%3A%0A-%20Nexus%20Opinions%0A-%20Independent%20Medical%20Opinions%20%28IMOs%29%0A-%20DBQ%20Evaluations%0A-%20Records%20Reviews%0A-%20Other%3A%0A%0ABrief%20Practice%20Description%3A%0A%0AI%20understand%20that%20submitting%20this%20request%20does%20not%20guarantee%20a%20listing%20and%20that%20a%20listing%20does%20not%20constitute%20endorsement%20by%20The%20Veteran%20File%20or%20the%20U.S.%20Department%20of%20Veterans%20Affairs."
->
-  Request to Be Listed
-</a>
+        <h2>Request consideration for the directory.</h2>
       </div>
-      <div class="medical-review-box">
-        <strong>Planned review items</strong>
-        <ul>
-          <li>Professional name and credentials</li>
-          <li>License / practice states</li>
-          <li>Specialty and services</li>
-          <li>Telehealth availability</li>
-          <li>Practice website and contact information</li>
-          <li>Clear acknowledgement of independent status</li>
-        </ul>
-      </div>
+      <p>
+        Provider submissions are reviewed before publication. The Veteran File
+        may verify credentials, services, licensing, and public practice information.
+      </p>
     </div>
-  </section>
+
+    <form id="providerRequestForm" class="provider-request-form">
+
+      <div class="provider-form-grid">
+
+        <div class="form-field">
+          <label for="practiceName">Practice / Provider Name *</label>
+          <input
+            type="text"
+            id="practiceName"
+            name="practiceName"
+            required
+            autocomplete="organization"
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="providerName">Provider Name *</label>
+          <input
+            type="text"
+            id="providerName"
+            name="providerName"
+            required
+            autocomplete="name"
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="credentials">Professional Credentials *</label>
+          <input
+            type="text"
+            id="credentials"
+            name="credentials"
+            placeholder="MD, DO, NP, PA-C, PsyD, etc."
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="specialty">Specialty *</label>
+          <input
+            type="text"
+            id="specialty"
+            name="specialty"
+            placeholder="Primary care, psychology, orthopedics, etc."
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="providerEmail">Professional Email *</label>
+          <input
+            type="email"
+            id="providerEmail"
+            name="email"
+            required
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="providerPhone">Phone</label>
+          <input
+            type="tel"
+            id="providerPhone"
+            name="phone"
+            autocomplete="tel"
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="providerWebsite">Practice Website</label>
+          <input
+            type="url"
+            id="providerWebsite"
+            name="website"
+            placeholder="https://"
+            autocomplete="url"
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="licensedStates">States Licensed / Practicing In *</label>
+          <input
+            type="text"
+            id="licensedStates"
+            name="states"
+            placeholder="SC, NC, GA"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="telehealth">Telehealth Available? *</label>
+          <select id="telehealth" name="telehealth" required>
+            <option value="">Select one</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+      </div>
+
+      <fieldset class="provider-services">
+        <legend>Services Offered *</legend>
+
+        <label>
+          <input type="checkbox" name="services" value="Nexus Opinions">
+          Nexus Opinions
+        </label>
+
+        <label>
+          <input type="checkbox" name="services" value="Independent Medical Opinions">
+          Independent Medical Opinions (IMOs)
+        </label>
+
+        <label>
+          <input type="checkbox" name="services" value="DBQ Evaluations">
+          DBQ Evaluations
+        </label>
+
+        <label>
+          <input type="checkbox" name="services" value="Records Reviews">
+          Records Reviews
+        </label>
+
+        <label>
+          <input type="checkbox" name="services" value="Telehealth Consultations">
+          Telehealth Consultations
+        </label>
+
+        <label>
+          <input type="checkbox" name="services" value="Other">
+          Other
+        </label>
+      </fieldset>
+
+      <div class="form-field form-field-full">
+        <label for="practiceDescription">Brief Practice Description *</label>
+        <textarea
+          id="practiceDescription"
+          name="description"
+          rows="6"
+          required
+          placeholder="Tell us about your practice, experience working with Veterans, and the services you provide."
+        ></textarea>
+      </div>
+
+      <label class="provider-acknowledgement">
+        <input
+          type="checkbox"
+          id="providerAcknowledgement"
+          name="acknowledgement"
+          required
+        >
+        <span>
+          I understand that submitting this request does not guarantee a listing
+          and that inclusion in The Veteran File directory does not constitute
+          endorsement by The Veteran File or the U.S. Department of Veterans Affairs.
+        </span>
+      </label>
+
+      <div class="provider-submit-row">
+        <button class="btn primary" id="providerSubmitBtn" type="submit">
+          Submit Listing Request
+        </button>
+
+        <span
+          id="providerFormStatus"
+          class="provider-form-status"
+          role="status"
+          aria-live="polite"
+        ></span>
+      </div>
+
+    </form>
+
+  </div>
+</section>
 </main>
 
 <footer>
