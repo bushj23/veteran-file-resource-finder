@@ -424,12 +424,13 @@ footer .muted,
   color: #C7D2E0 !important;
 }
 
-/* State Benefits intro text on navy background only */
-#states > .container > p {
+/* State Benefits section intro text on navy */
+#states .section-heading p {
   color: #B4C0D1 !important;
 }
 
-/* State cards use dark text on light backgrounds */
-#states .state-card p {
+/* State Benefits cards on light backgrounds */
+#states .state-card p,
+#states .state-card small {
   color: #536176 !important;
 }
