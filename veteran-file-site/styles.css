@@ -354,3 +354,23 @@ footer a{color:#fff}
     transition-duration:.01ms!important;
   }
 }
+
+/* Accessibility: WCAG AA contrast improvements */
+.helper,
+.muted,
+.hero-sub,
+.about p,
+.policy-grid p,
+.facility-status,
+.resource-card p,
+.state-card p,
+.path-card p {
+  color: #536176;
+}
+
+/* Ensure small red text meets contrast requirements */
+.kicker,
+.eyebrow {
+  color: #c9142f;
+}
+
