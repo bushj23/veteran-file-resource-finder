@@ -1,11 +1,17 @@
-# The Veteran File V3.1 — Native Mobile Controls
+# The Veteran File V3.2 — Clean JavaScript Fix
 
-This build keeps the VA ZIP finder and replaces the two mobile problem areas with controls that do not rely on JavaScript:
+This build fixes the ZIP finder by replacing the accumulated legacy JavaScript with a clean script.
 
-- Top-right Menu uses a native checkbox + label CSS toggle.
-- "Where Do I Start?" uses native HTML details/summary cards.
-- Page load clears a leftover URL hash so reopening the site does not jump straight to `#start`.
-- GA4 and the VA server-side API route remain included.
+Root cause found:
+A leftover malformed line from the old wizard code caused a JavaScript syntax error. Because the browser could not parse `script.js`, the ZIP finder never ran.
+
+Included:
+- Native CSS mobile menu
+- Native "Where Do I Start?" cards
+- Working VA ZIP finder client code
+- Server-side `/api/facilities` route
+- GA4 event tracking
+- No VA API key exposed to the browser
 
 Required Vercel environment variable:
 `VA_API_KEY`

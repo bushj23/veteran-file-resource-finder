@@ -1,42 +1,183 @@
-const $=s=>document.querySelector(s);const toast=$("#toast");
-function show(t){toast.textContent=t;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),2400)}
-r.innerHTML=`<h3>${p.title}</h3><p>${p.text}</p><a href="${p.url}" target="_blank">${p.label} →</a>`;r.hidden=false;r.scrollIntoView({behavior:"smooth",block:"nearest"});});
 
-if($("#year")) $("#year").textContent=new Date().getFullYear();
+const $ = (selector) => document.querySelector(selector);
 
-// Google Analytics interaction tracking
 function sendGAEvent(eventName, params = {}) {
   if (typeof gtag === "function") {
     gtag("event", eventName, params);
   }
 }
 
-// Track key outbound resource links.
-document.querySelectorAll("a[data-track]").forEach(link => {
+const year = $("#year");
+if (year) year.textContent = new Date().getFullYear();
+
+// Track labeled outbound links.
+document.querySelectorAll("a[data-track]").forEach((link) => {
   link.addEventListener("click", () => {
     sendGAEvent("resource_click", {
-      resource_name: link.dataset.track,
+      resource_name: link.dataset.track || "resource",
       link_url: link.href,
       link_text: link.textContent.trim()
     });
   });
 });
 
-// Track successful ZIP use without sending the ZIP itself.
-const gaZipButton = document.querySelector("#saveZipBtn");
-if (gaZipButton) {
-  gaZipButton.addEventListener("click", () => {
-    const value = document.querySelector("#zipInput")?.value.trim() || "";
-    if (/^\d{5}$/.test(value)) {
-      sendGAEvent("zip_search_used", { valid_zip: true });
+// Close the CSS mobile menu after selecting a link.
+document.querySelectorAll("#mobileNav a").forEach((link) => {
+  link.addEventListener("click", () => {
+    const toggle = $("#mobileMenuToggle");
+    if (toggle) toggle.checked = false;
+  });
+});
+
+// Track native "Where Do I Start?" cards.
+document.querySelectorAll(".native-wizard details").forEach((card, index) => {
+  card.addEventListener("toggle", () => {
+    if (card.open) {
+      const title = card.querySelector("summary strong")?.textContent?.trim() || `choice_${index + 1}`;
+      sendGAEvent("wizard_choice", { choice_text: title });
     }
   });
+});
+
+// --- Live VA Facilities finder ---
+const facilityZip = $("#zipInput");
+const facilitySearchBtn = $("#searchFacilitiesBtn");
+const facilityStatus = $("#facilityStatus");
+const facilityResults = $("#facilityResults");
+let selectedFacilityType = "";
+
+document.querySelectorAll(".filter-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    selectedFacilityType = btn.dataset.facilityType || "";
+  });
+});
+
+function escapeHTML(value = "") {
+  return String(value).replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  })[char]);
 }
 
-const facilityZip=document.querySelector("#zipInput"),facilitySearchBtn=document.querySelector("#searchFacilitiesBtn"),facilityStatus=document.querySelector("#facilityStatus"),facilityResults=document.querySelector("#facilityResults");let selectedFacilityType="";
-document.querySelectorAll(".filter-btn").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));btn.classList.add("active");selectedFacilityType=btn.dataset.facilityType||"";}));
-const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
-function typeLabel(t){return({"va_health_facility":"VA Health Care","vet_center":"Vet Center","va_benefits_facility":"VA Benefits Office","va_cemetery":"VA Cemetery"})[t]||"VA Facility";}
-function renderFacilities(p){const d=Array.isArray(p.data)?p.data:[],dist=new Map((p.meta?.distances||[]).map(x=>[x.id,x.distance]));if(!d.length){facilityResults.innerHTML='<div class="empty-result"><strong>No sandbox results found.</strong><p>Try another ZIP or category.</p></div>';return}facilityResults.innerHTML=d.map(x=>{const a=x.attributes||{},ad=a.address?.physical||a.address?.mailing||{},lines=[ad.address1,ad.address2,ad.address3,[ad.city,ad.state,ad.zip].filter(Boolean).join(" ")].filter(Boolean),ph=a.phone?.main||"",mi=dist.has(x.id)?Number(dist.get(x.id)).toFixed(1):"",mq=encodeURIComponent(lines.join(", "));return `<article class="facility-card"><div class="facility-card-top"><div><span class="facility-type">${esc(typeLabel(a.facilityType))}</span><h3>${esc(a.name||"VA Facility")}</h3></div>${mi?`<span class="distance-badge">${mi} mi</span>`:""}</div>${a.classification?`<p class="classification">${esc(a.classification)}</p>`:""}${lines.length?`<p class="facility-address">${lines.map(esc).join("<br>")}</p>`:""}${ph?`<p><a href="tel:${esc(ph.replace(/[^\d+]/g,""))}">${esc(ph)}</a></p>`:""}<div class="facility-actions">${mq?`<a class="small-btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=${mq}">Directions ↗</a>`:""}${a.website?`<a class="small-btn outline" target="_blank" href="${esc(a.website)}">VA page ↗</a>`:""}</div></article>`}).join("")}
-async function searchVAFacilities(){const z=facilityZip?.value.trim()||"";if(!/^\d{5}$/.test(z)){facilityStatus.textContent="Enter a valid 5-digit ZIP code.";return}facilitySearchBtn.disabled=true;facilitySearchBtn.textContent="Searching…";facilityStatus.textContent="Searching VA sandbox data…";facilityResults.innerHTML=`<div class="loading-result">Looking near ${esc(z)}…</div>`;try{const q=new URLSearchParams({zip:z,per_page:"12"});if(selectedFacilityType)q.set("type",selectedFacilityType);const r=await fetch(`/api/facilities?${q}`),p=await r.json();if(!r.ok)throw new Error(p.error||"Search failed.");facilityStatus.textContent=`Showing ${p.data?.length||0} sandbox result(s) for ${z}.`;renderFacilities(p);if(typeof gtag==="function")gtag("event","facility_search",{facility_type:selectedFacilityType||"all",result_count:p.data?.length||0});}catch(e){facilityStatus.textContent="We couldn't complete that search.";facilityResults.innerHTML=`<div class="empty-result error-result"><strong>Facility search unavailable.</strong><p>${esc(e.message)}</p><a href="https://www.va.gov/find-locations/" target="_blank">Use VA.gov's locator ↗</a></div>`}finally{facilitySearchBtn.disabled=false;facilitySearchBtn.textContent="Search VA resources"}}
-facilitySearchBtn?.addEventListener("click",searchVAFacilities);facilityZip?.addEventListener("keydown",e=>{if(e.key==="Enter")searchVAFacilities()});
+function typeLabel(type) {
+  return {
+    va_health_facility: "VA Health Care",
+    vet_center: "Vet Center",
+    va_benefits_facility: "VA Benefits Office",
+    va_cemetery: "VA Cemetery"
+  }[type] || "VA Facility";
+}
+
+function renderFacilities(payload) {
+  const data = Array.isArray(payload.data) ? payload.data : [];
+  const distances = new Map(
+    (payload.meta?.distances || []).map((item) => [item.id, item.distance])
+  );
+
+  if (!data.length) {
+    facilityResults.innerHTML = `
+      <div class="empty-result">
+        <strong>No sandbox results found.</strong>
+        <p>Try another ZIP code or facility category. Sandbox data is test data and may be incomplete.</p>
+      </div>`;
+    return;
+  }
+
+  facilityResults.innerHTML = data.map((item) => {
+    const attrs = item.attributes || {};
+    const address = attrs.address?.physical || attrs.address?.mailing || {};
+    const cityLine = [address.city, address.state, address.zip].filter(Boolean).join(" ");
+    const lines = [address.address1, address.address2, address.address3, cityLine].filter(Boolean);
+    const phone = attrs.phone?.main || "";
+    const distance = distances.has(item.id)
+      ? Number(distances.get(item.id)).toFixed(1)
+      : "";
+    const mapQuery = encodeURIComponent(lines.join(", "));
+
+    return `
+      <article class="facility-card">
+        <div class="facility-card-top">
+          <div>
+            <span class="facility-type">${escapeHTML(typeLabel(attrs.facilityType))}</span>
+            <h3>${escapeHTML(attrs.name || "VA Facility")}</h3>
+          </div>
+          ${distance ? `<span class="distance-badge">${distance} mi</span>` : ""}
+        </div>
+        ${attrs.classification ? `<p class="classification">${escapeHTML(attrs.classification)}</p>` : ""}
+        ${lines.length ? `<p class="facility-address">${lines.map(escapeHTML).join("<br>")}</p>` : ""}
+        ${phone ? `<p><a href="tel:${escapeHTML(phone.replace(/[^\d+]/g, ""))}">${escapeHTML(phone)}</a></p>` : ""}
+        <div class="facility-actions">
+          ${mapQuery ? `<a class="small-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${mapQuery}">Directions ↗</a>` : ""}
+          ${attrs.website ? `<a class="small-btn outline" target="_blank" rel="noopener" href="${escapeHTML(attrs.website)}">VA page ↗</a>` : ""}
+        </div>
+      </article>`;
+  }).join("");
+}
+
+async function searchVAFacilities() {
+  if (!facilityZip || !facilitySearchBtn || !facilityStatus || !facilityResults) return;
+
+  const zip = facilityZip.value.trim();
+
+  if (!/^\d{5}$/.test(zip)) {
+    facilityStatus.textContent = "Enter a valid 5-digit ZIP code.";
+    facilityResults.innerHTML = "";
+    facilityZip.focus();
+    return;
+  }
+
+  facilitySearchBtn.disabled = true;
+  facilitySearchBtn.textContent = "Searching…";
+  facilityStatus.textContent = "Searching VA sandbox data…";
+  facilityResults.innerHTML = `<div class="loading-result">Looking for VA resources in ZIP ${escapeHTML(zip)}…</div>`;
+
+  try {
+    const params = new URLSearchParams({ zip, per_page: "12" });
+    if (selectedFacilityType) params.set("type", selectedFacilityType);
+
+    const response = await fetch(`/api/facilities?${params.toString()}`);
+    const payload = await response.json();
+
+    if (!response.ok) {
+      throw new Error(payload?.error || `Search failed (${response.status}).`);
+    }
+
+    facilityStatus.textContent =
+      `Showing ${payload.data?.length || 0} sandbox result(s) for ${zip}.`;
+    renderFacilities(payload);
+
+    sendGAEvent("facility_search", {
+      facility_type: selectedFacilityType || "all",
+      result_count: payload.data?.length || 0
+    });
+  } catch (error) {
+    console.error("VA facility finder:", error);
+    facilityStatus.textContent = "We couldn't complete that search.";
+    facilityResults.innerHTML = `
+      <div class="empty-result error-result">
+        <strong>Facility search unavailable.</strong>
+        <p>${escapeHTML(error.message || "Please try again.")}</p>
+        <a href="https://www.va.gov/find-locations/" target="_blank" rel="noopener">
+          Use VA.gov's official locator ↗
+        </a>
+      </div>`;
+  } finally {
+    facilitySearchBtn.disabled = false;
+    facilitySearchBtn.textContent = "Search VA resources";
+  }
+}
+
+if (facilitySearchBtn) {
+  facilitySearchBtn.addEventListener("click", searchVAFacilities);
+}
+
+if (facilityZip) {
+  facilityZip.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") searchVAFacilities();
+  });
+}
