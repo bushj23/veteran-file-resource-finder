@@ -85,23 +85,72 @@
 <div><a href="tel:988">Call 988, then press 1</a><a href="sms:838255">Text 838255</a><a href="https://www.veteranscrisisline.net/" target="_blank">CrisisLine.net ↗</a></div></div></section>
 
 
-<section class="section" id="finder"><div class="shell">
-<div class="section-heading"><div><span class="kicker">LIVE VA RESOURCE FINDER</span><h2>Find VA resources near you.</h2></div><p>Search official VA facility data by ZIP code. During testing, results come from VA's sandbox environment and may not reflect current real-world locations.</p></div>
-<div class="live-finder">
-  <label for="zipInput"><strong>ZIP code</strong></label>
-  <div class="zip-row"><input id="zipInput" name="zip" maxlength="5" aria-describedby="facilityHelp facilityStatus" inputmode="numeric" autocomplete="postal-code" placeholder="Example: 29073"><button class="btn primary" id="searchFacilitiesBtn" type="button">Search VA resources</button></div>
-  <div class="finder-filters">
-    <button class="filter-btn active" type="button" data-facility-type="">All VA locations</button>
-    <button class="filter-btn" type="button" data-facility-type="health">VA health care</button>
-    <button class="filter-btn" type="button" data-facility-type="vet_center">Vet Centers</button>
-    <button class="filter-btn" type="button" data-facility-type="benefits">Benefits offices</button>
+<section class="section" id="finder">
+  <div class="shell">
+
+    <div class="section-heading">
+      <div>
+        <span class="kicker">VA RESOURCE FINDER — COMING SOON</span>
+        <h2>Find VA resources near you.</h2>
+      </div>
+      <p>
+        We’re currently awaiting production access to VA facility data.
+        Once approved, you’ll be able to search real VA locations by ZIP code.
+      </p>
+    </div>
+
+    <div class="live-finder">
+      <label for="zipInput"><strong>ZIP code</strong></label>
+
+      <div class="zip-row">
+        <input
+          id="zipInput"
+          name="zip"
+          maxlength="5"
+          inputmode="numeric"
+          autocomplete="postal-code"
+          placeholder="Coming soon"
+          disabled
+        >
+
+        <button class="btn primary" type="button" disabled>
+          Coming Soon
+        </button>
+      </div>
+
+      <p class="helper">
+        Production VA Facilities API access is pending. Sandbox test data is not being shown to visitors.
+      </p>
+
+      <a
+        class="btn secondary-light"
+        href="https://www.va.gov/find-locations/"
+        target="_blank"
+        rel="noopener"
+      >
+        Use VA.gov's official facility locator ↗
+      </a>
+    </div>
+
+    <div class="rep-help">
+      <div>
+        <span class="kicker">ACCREDITED CLAIMS HELP</span>
+        <h3>Need a VSO, attorney, or claims agent?</h3>
+        <p>Use VA's official accreditation finder for individual representatives.</p>
+      </div>
+
+      <a
+        class="btn secondary-light"
+        href="https://www.va.gov/get-help-from-accredited-representative/find-rep/"
+        target="_blank"
+        rel="noopener"
+      >
+        Find accredited help ↗
+      </a>
+    </div>
+
   </div>
-  <p class="helper" id="facilityHelp">Official VA Facilities API • Sandbox testing mode. No personal account or claim information is required.</p>
-  <p id="facilityStatus" class="facility-status" role="status" aria-live="polite"></p>
-  <div id="facilityResults" class="facility-results" aria-live="polite"></div>
-</div>
-<div class="rep-help"><div><span class="kicker">ACCREDITED CLAIMS HELP</span><h3>Need a VSO, attorney, or claims agent?</h3><p>Use VA's official accreditation finder for individual representatives.</p></div><a class="btn secondary-light" href="https://www.va.gov/get-help-from-accredited-representative/find-rep/" target="_blank">Find accredited help ↗</a></div>
-</div></section>
+</section>
 
 
 <section class="section dark" id="start"><div class="shell">
