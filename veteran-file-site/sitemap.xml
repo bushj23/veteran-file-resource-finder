@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://www.theveteranfile.org/</loc>
   </url>
@@ -7,4 +9,13 @@
   <url>
     <loc>https://www.theveteranfile.org/medical-resources.html</loc>
   </url>
+
+  <url>
+    <loc>https://www.theveteranfile.org/state-benefits.html</loc>
+  </url>
+
+  <url>
+    <loc>https://www.theveteranfile.org/va-claim-denied.html</loc>
+  </url>
+
 </urlset>
