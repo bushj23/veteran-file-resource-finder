@@ -424,7 +424,12 @@ footer .muted,
   color: #C7D2E0 !important;
 }
 
-/* Final State Benefits contrast fix */
-#states p {
+/* State Benefits intro text on navy background only */
+#states > .container > p {
   color: #B4C0D1 !important;
+}
+
+/* State cards use dark text on light backgrounds */
+#states .state-card p {
+  color: #536176 !important;
 }
