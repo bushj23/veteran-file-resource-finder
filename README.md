@@ -1,13 +1,13 @@
-# The Veteran File — Current Build + GA4
+# The Veteran File V3 — VA ZIP Finder
 
-Includes the working mobile menu and Google Analytics 4.
+Uses the official VA Facilities API through a Vercel serverless function.
 
-Measurement ID: `G-9SM2Y9CTRG`
+Current mode: VA sandbox/test data.
 
-Tracked:
-- page views
-- `resource_click`
-- `wizard_choice`
-- `zip_search_used`
+Required Vercel environment variable: `VA_API_KEY`
 
-The actual ZIP code is not sent to Analytics.
+After VA production approval, change the upstream URL in `api/facilities.js` from:
+`https://sandbox-api.va.gov/...`
+to:
+`https://api.va.gov/...`
+and replace the Vercel environment variable with the production key.

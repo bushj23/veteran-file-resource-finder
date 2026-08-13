@@ -38,18 +38,24 @@
 <section class="crisis-bar"><div class="shell crisis-inner"><strong>Need urgent support? Veterans Crisis Line</strong>
 <div><a href="tel:988">Call 988, then press 1</a><a href="sms:838255">Text 838255</a><a href="https://www.veteranscrisisline.net/" target="_blank">CrisisLine.net ↗</a></div></div></section>
 
-<section class="section" id="finder"><div class="shell">
-<div class="section-heading"><div><span class="kicker">SMART RESOURCE FINDER</span><h2>What are you looking for?</h2></div><p>Enter your ZIP once. We’ll remember it on this device and make the next step faster.</p></div>
-<div class="finder-panel"><div><label>ZIP code</label><div class="zip-row"><input id="zipInput" maxlength="5" inputmode="numeric" placeholder="Example: 29073"><button class="btn primary" id="saveZipBtn">Use this ZIP</button></div><p class="helper">Stored only in your browser.</p><p id="zipStatus"></p></div><div class="current"><small>Your search area</small><strong id="currentZip">Not set</strong><button id="clearZipBtn">Clear</button></div></div>
-<div class="resource-grid">
-<article><span class="icon">🏥</span><b>VA.gov</b><h3>VA health care & facilities</h3><p>Medical centers, clinics, benefits offices, Vet Centers and more.</p><a href="https://www.va.gov/find-locations/" target="_blank" data-track="VA Facility Locator">Open VA locator →</a><button class="copy-zip">Copy ZIP</button></article>
-<article><span class="icon">📄</span><b>VA accredited</b><h3>Free VSO help</h3><p>Find an accredited VSO representative for claim assistance.</p><a href="https://www.va.gov/ogc/apps/accreditation/" target="_blank" data-track="VA Accreditation Search">Search VSOs →</a><button class="copy-zip">Copy ZIP</button></article>
-<article><span class="icon">⚖️</span><b>VA accredited</b><h3>Accredited attorneys</h3><p>Verify attorneys through VA’s official accreditation database.</p><a href="https://www.va.gov/ogc/apps/accreditation/" target="_blank" data-track="VA Accreditation Search">Search attorneys →</a><button class="copy-zip">Copy ZIP</button></article>
-<article><span class="icon">🧾</span><b>VA accredited</b><h3>Accredited claims agents</h3><p>Verify claims agents before you appoint or pay anyone.</p><a href="https://www.va.gov/ogc/apps/accreditation/" target="_blank" data-track="VA Accreditation Search">Search claims agents →</a><button class="copy-zip">Copy ZIP</button></article>
-<article><span class="icon">💬</span><b>VA.gov</b><h3>Vet Centers</h3><p>Community-based counseling, outreach and readjustment services.</p><a href="https://www.vetcenter.va.gov/" target="_blank" data-track="Vet Center">Find Vet Center help →</a></article>
-<article><span class="icon">🏠</span><b>VA.gov</b><h3>Housing assistance</h3><p>Homelessness, housing instability, home loans and housing grants.</p><a href="https://www.va.gov/housing-assistance/" target="_blank" data-track="VA Housing Assistance">Housing resources →</a></article>
-</div></div></section>
 
+<section class="section" id="finder"><div class="shell">
+<div class="section-heading"><div><span class="kicker">LIVE VA RESOURCE FINDER</span><h2>Find VA resources near you.</h2></div><p>Search official VA facility data by ZIP code. During testing, results come from VA's sandbox environment and may not reflect current real-world locations.</p></div>
+<div class="live-finder">
+  <label for="zipInput"><strong>ZIP code</strong></label>
+  <div class="zip-row"><input id="zipInput" maxlength="5" inputmode="numeric" autocomplete="postal-code" placeholder="Example: 29073"><button class="btn primary" id="searchFacilitiesBtn" type="button">Search VA resources</button></div>
+  <div class="finder-filters">
+    <button class="filter-btn active" type="button" data-facility-type="">All VA locations</button>
+    <button class="filter-btn" type="button" data-facility-type="health">VA health care</button>
+    <button class="filter-btn" type="button" data-facility-type="vet_center">Vet Centers</button>
+    <button class="filter-btn" type="button" data-facility-type="benefits">Benefits offices</button>
+  </div>
+  <p class="helper">Official VA Facilities API • Sandbox testing mode</p>
+  <p id="facilityStatus" class="facility-status" aria-live="polite"></p>
+  <div id="facilityResults" class="facility-results" aria-live="polite"></div>
+</div>
+<div class="rep-help"><div><span class="kicker">ACCREDITED CLAIMS HELP</span><h3>Need a VSO, attorney, or claims agent?</h3><p>Use VA's official accreditation finder for individual representatives.</p></div><a class="btn secondary-light" href="https://www.va.gov/get-help-from-accredited-representative/find-rep/" target="_blank">Find accredited help ↗</a></div>
+</div></section>
 <section class="section dark" id="start"><div class="shell">
 <div class="section-heading"><div><span class="kicker">WHERE DO I START?</span><h2>Pick the situation closest to yours.</h2></div><p>This provides a starting point, not a claim prediction.</p></div>
 <div class="wizard">
