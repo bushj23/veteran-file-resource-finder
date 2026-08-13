@@ -423,3 +423,8 @@ footer .muted,
 .site-footer small {
   color: #C7D2E0 !important;
 }
+
+/* Final State Benefits contrast fix */
+#states p {
+  color: #B4C0D1 !important;
+}
