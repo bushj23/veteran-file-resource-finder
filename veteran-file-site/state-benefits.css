@@ -78,3 +78,41 @@ footer img {
     max-width: 64px !important;
   }
 }
+/* Expanded State Benefit details */
+.benefit-details {
+  margin-top: 14px;
+  border-top: 1px solid #dfe6ef;
+  padding-top: 12px;
+}
+
+.benefit-details summary {
+  cursor: pointer;
+  font-weight: 900;
+  color: #9f1427;
+  padding: 8px 0;
+}
+
+.benefit-details summary:focus-visible {
+  outline: 3px solid #ffcf33;
+  outline-offset: 3px;
+}
+
+.benefit-detail-block {
+  margin-top: 14px;
+}
+
+.benefit-detail-block strong {
+  display: block;
+  color: #0b1730;
+  margin-bottom: 4px;
+}
+
+.benefit-detail-block p {
+  margin: 0 0 8px;
+  color: #536176;
+}
+
+.benefit-detail-block a {
+  font-weight: 900;
+  color: #9f1427;
+}
