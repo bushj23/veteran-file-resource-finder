@@ -1,0 +1,66 @@
+
+.guide-hero{
+  background:radial-gradient(circle at 80% 20%,rgba(33,79,132,.75),transparent 34%),linear-gradient(135deg,#06152d,#0b254c);
+  color:#fff;padding:78px 0;
+}
+.guide-hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.guide-hero h1{font-size:clamp(42px,5vw,68px);line-height:1.02;letter-spacing:-.04em;margin:12px 0 18px}
+.guide-lead{font-size:19px;color:#d5dfec;max-width:780px}
+.guide-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.guide-outline{border:1px solid #8ea0b9;color:#fff;background:transparent}
+.guide-hero-card{background:#fff;color:#0b1730;border-radius:20px;padding:26px;box-shadow:0 26px 60px rgba(0,0,0,.28)}
+.guide-hero-card p{color:#536176;margin-bottom:0}
+.guide-warning{background:#fff5f6;border-bottom:1px solid #edc6cb;color:#5d2630}
+.guide-warning .shell{padding:18px 0;display:flex;gap:10px;align-items:flex-start}
+.review-grid,.board-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.review-card,.board-grid article,.guide-detail-stack article{background:#fff;border:1px solid #dfe6ef;border-radius:16px;padding:22px;box-shadow:0 8px 24px rgba(16,32,64,.05)}
+.review-card{display:flex;flex-direction:column}
+.review-card h3,.board-grid h3{font-size:22px;margin:8px 0}
+.review-card p,.review-card li,.board-grid p,.guide-detail-stack p{color:#536176}
+.review-card a,.guide-source,.source-links a,.education-note a{color:#9f1427;font-weight:900}
+.review-card a{margin-top:auto}
+.review-tag{font-size:11px;font-weight:950;letter-spacing:.06em;color:#c9142f}
+.guide-dark{background:#071a38;color:#fff}
+.guide-dark .section-heading p{color:#c7d2e0!important}
+.guide-dark .kicker{color:#ff6478!important}
+.decision-checklist{display:grid;gap:12px}
+.decision-checklist article{display:grid;grid-template-columns:auto 1fr;gap:14px;background:#0e2e58;border:1px solid #2e4c72;border-radius:15px;padding:18px}
+.decision-checklist article>span{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#df1d31;color:#fff;font-weight:950}
+.decision-checklist h3{margin:0 0 5px}
+.decision-checklist p{margin:0;color:#c7d2e0}
+.guide-section-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:38px;align-items:start}
+.guide-section-grid h2{font-size:clamp(34px,4vw,50px);line-height:1.07;margin:8px 0 14px}
+.guide-intro{font-size:18px;color:#536176}
+.plain-box{margin-top:22px;background:#eef3f9;border-left:5px solid #c9142f;border-radius:12px;padding:18px}
+.plain-box p{color:#536176;margin-bottom:0}
+.guide-detail-stack{display:grid;gap:12px}
+.guide-soft{background:#eef3f9}
+.guide-soft .guide-detail-stack article{background:#fff}
+.board-grid{margin-bottom:20px}
+.decision-tool{background:#f7f9fc}
+.decision-tree{max-width:900px;margin:auto;display:grid;gap:10px}
+.tree-question{background:#fff;border:1px solid #dfe6ef;border-radius:16px;padding:22px}
+.tree-question strong{display:block;font-size:19px;margin-bottom:14px}
+.tree-question div{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.tree-question a{background:#071a38;color:#fff;border-radius:999px;padding:10px 14px;font-weight:900;text-decoration:none}
+.tree-question span{color:#536176;font-weight:800}
+.tree-arrow{text-align:center;font-size:28px;color:#9f1427}
+.education-note{max-width:900px;margin:28px auto 0;background:#fff5f6;border:1px solid #edc6cb;border-radius:14px;padding:18px;color:#5d2630}
+.education-note p{margin:6px 0 10px}
+.guide-sources{background:#071a38;color:#fff}
+.guide-sources .kicker{color:#ff6478!important}
+.guide-sources h2{font-size:38px;margin:8px 0 18px}
+.source-links{display:flex;gap:10px;flex-wrap:wrap}
+.source-links a{background:#fff;color:#071a38;padding:10px 13px;border-radius:999px;text-decoration:none}
+.last-reviewed{color:#c7d2e0;margin-top:20px}
+@media(max-width:850px){
+  .guide-hero-grid,.guide-section-grid{grid-template-columns:1fr}
+  .review-grid,.board-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .guide-hero{padding:52px 0}
+  .guide-hero h1{font-size:42px}
+  .guide-warning .shell{flex-direction:column}
+  .tree-question div{align-items:stretch;flex-direction:column}
+  .tree-question a{display:block;text-align:center}
+}
