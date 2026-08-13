@@ -84,3 +84,86 @@ function render(){
 });
 
 render();
+
+// --- Provider listing request form ---
+const providerRequestForm = document.querySelector("#providerRequestForm");
+const providerSubmitBtn = document.querySelector("#providerSubmitBtn");
+const providerFormStatus = document.querySelector("#providerFormStatus");
+
+if (providerRequestForm) {
+  providerRequestForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(providerRequestForm);
+
+    const services = formData.getAll("services");
+
+    if (!services.length) {
+      providerFormStatus.textContent = "Please select at least one service.";
+      providerFormStatus.className = "provider-form-status error";
+      return;
+    }
+
+    const payload = {
+      practiceName: formData.get("practiceName")?.trim(),
+      providerName: formData.get("providerName")?.trim(),
+      credentials: formData.get("credentials")?.trim(),
+      specialty: formData.get("specialty")?.trim(),
+      email: formData.get("email")?.trim(),
+      phone: formData.get("phone")?.trim(),
+      website: formData.get("website")?.trim(),
+      states: formData.get("states")?.trim(),
+      telehealth: formData.get("telehealth"),
+      services,
+      description: formData.get("description")?.trim(),
+      acknowledgement: formData.get("acknowledgement") === "on"
+    };
+
+    providerSubmitBtn.disabled = true;
+    providerSubmitBtn.textContent = "Submitting…";
+
+    providerFormStatus.textContent = "Sending your request…";
+    providerFormStatus.className = "provider-form-status";
+
+    try {
+      const response = await fetch("/api/provider-request", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Unable to submit your request.");
+      }
+
+      providerFormStatus.textContent =
+        "Request received. The Veteran File will review your submission.";
+
+      providerFormStatus.className = "provider-form-status success";
+
+      providerRequestForm.reset();
+
+      if (typeof sendGAEvent === "function") {
+        sendGAEvent("provider_listing_request", {
+          form_name: "medical_provider_directory"
+        });
+      }
+
+    } catch (error) {
+      console.error("Provider listing request:", error);
+
+      providerFormStatus.textContent =
+        error.message || "Something went wrong. Please try again.";
+
+      providerFormStatus.className = "provider-form-status error";
+
+    } finally {
+      providerSubmitBtn.disabled = false;
+      providerSubmitBtn.textContent = "Submit Listing Request";
+    }
+  });
+}
