@@ -22,15 +22,57 @@ Object.values(stateData)
   });
 
 function renderBenefits(state){
-  const benefits=(state.benefits||[]).filter(b=>!activeCategory || b.category===activeCategory);
-  benefitGrid.innerHTML=benefits.map(b=>`
+  const benefits = (state.benefits || []).filter(
+    b => !activeCategory || b.category === activeCategory
+  );
+
+  benefitGrid.innerHTML = benefits.map(b => `
     <article class="benefit-card">
       <span class="benefit-category">${esc(b.category)}</span>
       <h3>${esc(b.title)}</h3>
       <p>${esc(b.summary)}</p>
-      <div class="benefit-source">Source: ${esc(b.source)}</div>
-      <p><a href="${esc(b.url)}" target="_blank" rel="noopener">${esc(b.cta)} ↗</a></p>
-    </article>`).join("");
+
+      <details class="benefit-details">
+        <summary>View benefit details</summary>
+
+        ${b.eligibility ? `
+          <div class="benefit-detail-block">
+            <strong>Who may qualify</strong>
+            <p>${esc(b.eligibility)}</p>
+          </div>
+        ` : ""}
+
+        ${b.benefit ? `
+          <div class="benefit-detail-block">
+            <strong>What you may receive</strong>
+            <p>${esc(b.benefit)}</p>
+          </div>
+        ` : ""}
+
+        ${b.howToApply ? `
+          <div class="benefit-detail-block">
+            <strong>How to apply</strong>
+            <p>${esc(b.howToApply)}</p>
+          </div>
+        ` : ""}
+
+        ${b.documents ? `
+          <div class="benefit-detail-block">
+            <strong>What you may need</strong>
+            <p>${esc(b.documents)}</p>
+          </div>
+        ` : ""}
+
+        <div class="benefit-detail-block">
+          <strong>Official source</strong>
+          <p>${esc(b.source)}</p>
+          <a href="${esc(b.url)}" target="_blank" rel="noopener">
+            ${esc(b.cta)} ↗
+          </a>
+        </div>
+      </details>
+    </article>
+  `).join("");
 }
 
 function loadState(slug,{push=true}={}){
