@@ -355,19 +355,6 @@ footer a{color:#fff}
   }
 }
 
-/* Accessibility: WCAG AA contrast improvements */
-.helper,
-.muted,
-.hero-sub,
-.about p,
-.policy-grid p,
-.facility-status,
-.resource-card p,
-.state-card p,
-.path-card p {
-  color: #536176;
-}
-
 /* Ensure small red text meets contrast requirements */
 .kicker,
 .eyebrow {
@@ -442,4 +429,53 @@ footer .muted,
 
 #states .state-card p {
   color: #B4C0D1 !important;
+}
+
+/* WCAG AA contrast overrides */
+
+/* Text on light backgrounds */
+.section-heading p,
+.resource-grid p,
+.guide-grid p,
+.helper,
+#zipStatus,
+.facility-status,
+.policy-grid p,
+.about p {
+  color: #536176 !important;
+}
+
+/* Red labels on light backgrounds */
+.kicker,
+.eyebrow {
+  color: #c9142f !important;
+}
+
+/* Text on dark navy backgrounds */
+.dark p,
+.dark small,
+.start-link-grid a small,
+.rep-help p,
+footer p,
+footer span,
+footer small {
+  color: #c7d2e0 !important;
+}
+
+/* Red labels on dark navy backgrounds */
+.dark .kicker,
+.dark .eyebrow,
+.rep-help .kicker {
+  color: #ff6478 !important;
+}
+
+/* State Benefits: white section heading area */
+#states .section-heading > p {
+  color: #536176 !important;
+}
+
+/* State Benefits: navy resource card */
+#states .state-card p,
+#states .state-card small {
+  color: #c7d2e0 !important;
 }
