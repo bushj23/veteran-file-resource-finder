@@ -22,23 +22,7 @@ document.querySelectorAll("a[data-track]").forEach((link) => {
 });
 
 // Close the CSS mobile menu after selecting a link.
-document.querySelectorAll("#mobileNav a").forEach((link) => {
-  link.addEventListener("click", () => {
-    const toggle = $("#mobileMenuToggle");
-    if (toggle) toggle.checked = false;
-  });
-});
-
 // Track native "Where Do I Start?" cards.
-document.querySelectorAll(".native-wizard details").forEach((card, index) => {
-  card.addEventListener("toggle", () => {
-    if (card.open) {
-      const title = card.querySelector("summary strong")?.textContent?.trim() || `choice_${index + 1}`;
-      sendGAEvent("wizard_choice", { choice_text: title });
-    }
-  });
-});
-
 // --- Live VA Facilities finder ---
 const facilityZip = $("#zipInput");
 const facilitySearchBtn = $("#searchFacilitiesBtn");
