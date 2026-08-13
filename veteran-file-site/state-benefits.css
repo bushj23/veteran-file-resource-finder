@@ -40,3 +40,22 @@
   .state-hero{padding:52px 0}
   .benefit-grid{grid-template-columns:1fr}
 }
+/* Fix oversized logos on State Benefits page */
+.site-header .brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+footer img {
+  width: 72px;
+  height: auto;
+  object-fit: contain;
+}
+/* Prevent any image from overflowing its container */
+.state-hero img,
+.state-selector-card img,
+footer img,
+.site-header img {
+  max-width: 100%;
+}
