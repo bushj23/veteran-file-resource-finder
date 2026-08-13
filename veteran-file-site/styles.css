@@ -412,3 +412,14 @@ footer a{color:#fff}
 .rep-help span:not(.kicker):not(.eyebrow) {
   color: #B4C0D1 !important;
 }
+
+/* FINAL WCAG contrast fix — footer/navy backgrounds */
+footer p,
+footer span,
+footer small,
+footer .muted,
+.site-footer p,
+.site-footer span,
+.site-footer small {
+  color: #C7D2E0 !important;
+}
