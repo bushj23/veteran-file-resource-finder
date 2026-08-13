@@ -402,3 +402,13 @@ footer a{color:#fff}
 .rep-help p {
   color: #B4C0D1 !important;
 }
+
+/* Final remaining dark-background contrast fix */
+.dark p,
+.dark small,
+.dark span:not(.kicker):not(.eyebrow),
+.rep-help p,
+.rep-help small,
+.rep-help span:not(.kicker):not(.eyebrow) {
+  color: #B4C0D1 !important;
+}
