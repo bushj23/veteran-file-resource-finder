@@ -1,9 +1,4 @@
-const $=s=>document.querySelector(s);const zip=$("#zipInput"),current=$("#currentZip"),status=$("#zipStatus"),toast=$("#toast");
-function valid(v){return /^\d{5}$/.test(v)}
-function load(){const z=localStorage.getItem("tvfZip");if(z){zip.value=z;current.textContent=z}}load();
-$("#saveZipBtn").onclick=()=>{const z=zip.value.trim();if(!valid(z)){status.textContent="Enter a valid 5-digit ZIP code.";return}localStorage.setItem("tvfZip",z);current.textContent=z;status.textContent="ZIP saved on this device.";show("ZIP saved");};
-$("#clearZipBtn").onclick=()=>{localStorage.removeItem("tvfZip");zip.value="";current.textContent="Not set";status.textContent="ZIP cleared.";};
-document.querySelectorAll(".copy-zip").forEach(b=>b.onclick=async()=>{const z=localStorage.getItem("tvfZip")||zip.value.trim();if(!valid(z)){status.textContent="Enter and save your ZIP first.";zip.focus();return}await navigator.clipboard.writeText(z);show("ZIP "+z+" copied — paste it into the official search.");});
+const $=s=>document.querySelector(s);const toast=$("#toast");
 function show(t){toast.textContent=t;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),2400)}
 const paths={
 first:{title:"Start a disability claim",text:"Review VA's filing guide, gather supporting evidence, and consider free help from an accredited VSO.",url:"https://www.va.gov/disability/how-to-file-claim/",label:"Open VA filing guide"},
@@ -15,7 +10,7 @@ housing:{title:"Get housing support",text:"VA has programs for veterans who are 
 };
 document.querySelectorAll("[data-path]").forEach(b=>b.onclick=()=>{const p=paths[b.dataset.path],r=$("#wizardResult");r.innerHTML=`<h3>${p.title}</h3><p>${p.text}</p><a href="${p.url}" target="_blank">${p.label} →</a>`;r.hidden=false;r.scrollIntoView({behavior:"smooth",block:"nearest"});});
 
-$("#year").textContent=new Date().getFullYear();
+if($("#year")) $("#year").textContent=new Date().getFullYear();
 
 // Google Analytics interaction tracking
 function sendGAEvent(eventName, params = {}) {
