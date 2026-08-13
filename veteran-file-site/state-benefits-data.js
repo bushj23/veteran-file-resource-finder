@@ -467,7 +467,7 @@ window.STATE_BENEFITS_DATA = {
     "intro": "This state page is ready for research and publication.",
     "benefits": []
   },
-  "south-carolina": {
+    "south-carolina": {
     "abbr": "SC",
     "name": "South Carolina",
     "published": true,
@@ -476,55 +476,87 @@ window.STATE_BENEFITS_DATA = {
       "url": "https://scdva.sc.gov/"
     },
     "lastReviewed": "August 13, 2026",
-    "intro": "South Carolina offers state and local programs for Veterans and eligible family members. The summaries below are starting points; eligibility can depend on disability rating, residency, service, and other factors.",
+    "intro": "South Carolina offers significant benefits for Veterans and eligible family members, including property-tax exemptions, education benefits, employment assistance, Veterans homes, burial benefits, hunting and fishing privileges, and free claims assistance. Eligibility varies by benefit, so always verify current requirements with the official agency.",
     "benefits": [
       {
         "category": "Taxes",
-        "title": "Property tax exemptions for qualifying disabled Veterans",
-        "summary": "Qualifying disabled Veterans may be eligible for South Carolina property-tax exemptions on certain real and personal property. Eligibility and the effective year depend on the applicable exemption rules.",
+        "title": "Disabled Veteran Property Tax Exemption",
+        "summary": "Qualifying Veterans who are permanently and totally disabled due to service-connected disabilities may qualify for a property-tax exemption on their home and up to five acres of land, as well as up to two private passenger vehicles. Eligibility is determined under South Carolina law and administered through the South Carolina Department of Revenue.",
         "source": "South Carolina Department of Revenue",
         "url": "https://dor.sc.gov/property/exempt-property",
         "cta": "Check property-tax eligibility"
       },
       {
+        "category": "Taxes",
+        "title": "Military Retirement Pay Tax Exemption",
+        "summary": "South Carolina allows qualifying military retirement income to be deducted from state taxable income. Current state rules provide a 100% deduction for qualifying military retirement income regardless of the retiree's age. Certain surviving spouses may also qualify.",
+        "source": "South Carolina Department of Veterans' Affairs",
+        "url": "https://scdva.sc.gov/veteran-consumer-resources",
+        "cta": "Review military tax benefits"
+      },
+      {
         "category": "Education",
-        "title": "Tuition assistance for certain Veterans' children",
-        "summary": "South Carolina provides a tuition waiver for qualified children of certain military Veterans attending eligible state-supported colleges, universities, technical schools, or qualifying dual-enrollment programs. Residency and other eligibility requirements apply.",
+        "title": "Tuition Program for Certain Veterans' Children",
+        "summary": "Eligible children of certain wartime Veterans may qualify for tuition assistance at South Carolina state-supported colleges, universities, and technical education institutions. The program has specific Veteran, dependent, residency, service, and eligibility requirements, and approval is handled through SCDVA.",
         "source": "South Carolina Department of Veterans' Affairs",
         "url": "https://scdva.sc.gov/education",
-        "cta": "Review education benefits"
+        "cta": "Check tuition eligibility"
       },
       {
         "category": "Claims Assistance",
-        "title": "County Veterans' Affairs Offices and claims help",
-        "summary": "SCDVA and County Veterans' Affairs Officers can help Veterans and family members with benefits claims and may provide claims review or appeal assistance depending on the case.",
+        "title": "Free County Veterans' Affairs Claims Assistance",
+        "summary": "South Carolina Veterans and eligible family members can receive assistance through County Veterans' Affairs Offices. County officers can help Veterans understand available benefits, prepare claims, gather supporting documentation, and navigate the VA benefits process.",
         "source": "South Carolina Department of Veterans' Affairs",
-        "url": "https://scdva.sc.gov/benefits-claims",
-        "cta": "Find claims assistance"
+        "url": "https://scdva.sc.gov/county-resources",
+        "cta": "Find your county Veterans office"
       },
       {
         "category": "Employment",
-        "title": "Veteran employment resources",
-        "summary": "South Carolina provides employment-resource connections for Veterans, including state and federal workforce resources and links to programs supporting Guard and Reserve members.",
-        "source": "South Carolina Department of Veterans' Affairs",
-        "url": "https://scdva.sc.gov/employment",
-        "cta": "Explore employment resources"
+        "title": "Veteran Employment Priority and SC Works",
+        "summary": "Veterans can receive priority employment services through SC Works, including career coaching, job referrals, resume assistance, workshops, training resources, and other workforce services. Certain job listings may also be available to members of the military community before the general public.",
+        "source": "SC Works",
+        "url": "https://scworks.org/jobseeker/jobseeker-programs/veteran-services",
+        "cta": "Explore Veteran employment services"
       },
       {
-        "category": "Housing",
-        "title": "Housing and homelessness resources",
-        "summary": "SCDVA connects Veterans with housing and homelessness resources, including programs intended to support housing stability and transitions.",
-        "source": "South Carolina Department of Veterans' Affairs",
-        "url": "https://scdva.sc.gov/",
-        "cta": "Visit SCDVA resources"
+        "category": "Recreation",
+        "title": "Disabled Veteran Hunting and Fishing Benefits",
+        "summary": "Qualifying South Carolina residents with disabilities, including Veterans receiving qualifying VA disability benefits, may be eligible for free disability hunting and fishing privileges. Residency, disability documentation, and other requirements apply.",
+        "source": "South Carolina Department of Natural Resources",
+        "url": "https://www.dnr.sc.gov/disabled.html",
+        "cta": "Check hunting and fishing eligibility"
+      },
+      {
+        "category": "Transportation",
+        "title": "Disabled Veteran License Plates",
+        "summary": "South Carolina offers special Disabled Veteran license plates to qualifying Veterans. Eligibility depends on the Veteran's service-connected disability status. A Disabled Veteran plate does not automatically provide accessible parking privileges; separate disability certification may be required.",
+        "source": "South Carolina Department of Motor Vehicles",
+        "url": "https://www.scdmvonline.com/Vehicle-Owners/Registration/Plate-Gallery",
+        "cta": "View military license plates"
       },
       {
         "category": "Long-Term Care",
         "title": "South Carolina State Veterans Homes",
-        "summary": "South Carolina operates State Veterans Homes for eligible Veterans who need long-term nursing care. Admission requirements and costs vary based on eligibility and available benefits.",
+        "summary": "South Carolina operates State Veterans Homes providing skilled and intermediate nursing care for eligible Veterans. Facilities are located in several areas of the state, and admission depends on Veteran status, medical need, eligibility requirements, and availability.",
         "source": "South Carolina Department of Veterans' Affairs",
-        "url": "https://scdva.sc.gov/",
-        "cta": "Learn about State Veterans Homes"
+        "url": "https://scdva.sc.gov/state-veterans-homes",
+        "cta": "View State Veterans Homes"
+      },
+      {
+        "category": "Burial",
+        "title": "M.J. “Dolly” Cooper Veterans Cemetery",
+        "summary": "Eligible Veterans may receive burial benefits at the state Veterans cemetery, including grave space, opening and closing, a grave liner, permanent marker, and perpetual care at no cost to the Veteran. Eligible spouses and dependents may also qualify for interment. Veterans can apply for pre-certification of eligibility.",
+        "source": "South Carolina Department of Veterans' Affairs",
+        "url": "https://scdva.sc.gov/cemetery",
+        "cta": "Review cemetery benefits"
+      },
+      {
+        "category": "Family Support",
+        "title": "Military Family Relief Fund",
+        "summary": "South Carolina's Military Family Relief Fund may provide monetary grants to qualifying families of South Carolina National Guard members and South Carolina residents serving in Reserve components who meet the program's activation and eligibility requirements.",
+        "source": "South Carolina Department of Veterans' Affairs",
+        "url": "https://scdva.sc.gov/military-service-member-and-family-programs",
+        "cta": "Review family support programs"
       }
     ]
   },
