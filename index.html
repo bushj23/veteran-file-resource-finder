@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The Veteran File Resource Finder helps veterans find official VA facilities, accredited representatives, Vet Centers, state resources, and benefit information.">
+<title>The Veteran File | Veteran Resource Finder</title>
+<link rel="icon" href="assets/logo.png"><link rel="stylesheet" href="styles.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9SM2Y9CTRG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9SM2Y9CTRG');
+</script>
+
+
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header"><div class="shell nav-wrap">
+<a class="brand" href="#top"><img src="assets/logo.png" alt="The Veteran File eagle and American flag logo"><div><strong>The Veteran File</strong><span>Resource Finder</span></div></a>
+<a class="mobile-direct-link" href="#finder">Find Help</a>
+<nav id="mainNav" aria-label="Primary navigation"><a href="#finder">Find Help</a><a href="#start">Where Do I Start?</a><a href="#benefits">Benefits</a><a href="#states">State Benefits</a><a href="#latest">Latest TikTok</a><a class="nav-cta" href="https://www.tiktok.com/@the.veteran.file" target="_blank" data-track="TikTok Profile">TikTok ↗</a></nav>
+</div></header>
+<nav class="mobile-quick-nav" aria-label="Mobile quick navigation">
+  <a href="#finder">Find Help</a>
+  <a href="#start">Where Do I Start?</a>
+  <a href="#benefits">Benefits</a>
+  <a href="#latest">TikTok</a>
+</nav>
+
+<main id="main-content">
+<section class="hero" id="top"><div class="shell hero-grid">
+<div><span class="kicker">FREE • INDEPENDENT • VETERAN-FOCUSED</span><h1>Find the right veteran resource <em>without the runaround.</em></h1>
+<p class="lead">Official VA facilities, accredited claims help, Vet Centers, state benefits, and clear next steps—all in one place.</p>
+<div class="hero-actions"><a class="btn primary" href="#finder">Find resources near me</a><a class="btn ghost" href="#start">I don't know where to start</a></div>
+<div class="trust-row"><span>✓ No paywall</span><span>✓ No claim-selling</span><span>✓ Official sources first</span></div></div>
+<div class="hero-card"><img src="assets/logo.png" alt="The Veteran File eagle and American flag logo"><strong>Helping veterans navigate benefits.</strong><span>Search. Understand. Take the next step.</span></div>
+</div></section>
+
+<section class="crisis-bar"><div class="shell crisis-inner"><strong>Need urgent support? Veterans Crisis Line</strong>
+<div><a href="tel:988">Call 988, then press 1</a><a href="sms:838255">Text 838255</a><a href="https://www.veteranscrisisline.net/" target="_blank">CrisisLine.net ↗</a></div></div></section>
+
+
+<section class="section" id="finder"><div class="shell">
+<div class="section-heading"><div><span class="kicker">LIVE VA RESOURCE FINDER</span><h2>Find VA resources near you.</h2></div><p>Search official VA facility data by ZIP code. During testing, results come from VA's sandbox environment and may not reflect current real-world locations.</p></div>
+<div class="live-finder">
+  <label for="zipInput"><strong>ZIP code</strong></label>
+  <div class="zip-row"><input id="zipInput" name="zip" maxlength="5" aria-describedby="facilityHelp facilityStatus" inputmode="numeric" autocomplete="postal-code" placeholder="Example: 29073"><button class="btn primary" id="searchFacilitiesBtn" type="button">Search VA resources</button></div>
+  <div class="finder-filters">
+    <button class="filter-btn active" type="button" data-facility-type="">All VA locations</button>
+    <button class="filter-btn" type="button" data-facility-type="health">VA health care</button>
+    <button class="filter-btn" type="button" data-facility-type="vet_center">Vet Centers</button>
+    <button class="filter-btn" type="button" data-facility-type="benefits">Benefits offices</button>
+  </div>
+  <p class="helper" id="facilityHelp">Official VA Facilities API • Sandbox testing mode. No personal account or claim information is required.</p>
+  <p id="facilityStatus" class="facility-status" role="status" aria-live="polite"></p>
+  <div id="facilityResults" class="facility-results" aria-live="polite"></div>
+</div>
+<div class="rep-help"><div><span class="kicker">ACCREDITED CLAIMS HELP</span><h3>Need a VSO, attorney, or claims agent?</h3><p>Use VA's official accreditation finder for individual representatives.</p></div><a class="btn secondary-light" href="https://www.va.gov/get-help-from-accredited-representative/find-rep/" target="_blank">Find accredited help ↗</a></div>
+</div></section>
+
+
+<section class="section dark" id="start"><div class="shell">
+<div class="section-heading"><div><span class="kicker">WHERE DO I START?</span><h2>Pick the situation closest to yours.</h2></div><p>Each option opens the official VA starting point directly.</p></div>
+<div class="start-link-grid">
+  <a href="https://www.va.gov/disability/how-to-file-claim/" target="_blank" rel="noopener" data-track="First Disability Claim">
+    <strong>First disability claim</strong><small>I haven't filed before</small><span>Open VA filing guide →</span>
+  </a>
+  <a href="https://www.va.gov/disability/how-to-file-claim/when-to-file/" target="_blank" rel="noopener" data-track="Increase Claim">
+    <strong>Condition got worse</strong><small>I want an increase</small><span>Review when to file →</span>
+  </a>
+  <a href="https://www.va.gov/decision-reviews/" target="_blank" rel="noopener" data-track="Decision Review">
+    <strong>Claim was denied</strong><small>I need a decision review</small><span>Compare review options →</span>
+  </a>
+  <a href="https://www.va.gov/find-locations/" target="_blank" rel="noopener" data-track="VA Health Care">
+    <strong>Need VA health care</strong><small>Facilities or enrollment help</small><span>Find VA locations →</span>
+  </a>
+  <a href="https://www.va.gov/get-help-from-accredited-representative/" target="_blank" rel="noopener" data-track="Accredited Help">
+    <strong>Want claim help</strong><small>Find an accredited representative</small><span>Find accredited help →</span>
+  </a>
+  <a href="https://www.va.gov/homeless/" target="_blank" rel="noopener" data-track="Housing Help">
+    <strong>Housing trouble</strong><small>Homeless or at risk</small><span>Open housing help →</span>
+  </a>
+</div>
+</div></section>
+<section class="section" id="benefits"><div class="shell">
+<div class="section-heading"><div><span class="kicker">BENEFITS LIBRARY</span><h2>Skip the jargon. Start with the right page.</h2></div><p>Official launch points for common VA benefits and claims.</p></div>
+<div class="guide-grid">
+<a href="https://www.va.gov/disability/how-to-file-claim/" target="_blank" data-track="Disability Claim Guide"><h3>File a disability claim</h3><p>Evidence, filing methods, and what happens next.</p></a>
+<a href="https://www.va.gov/resources/your-intent-to-file-a-va-claim/" target="_blank" data-track="Intent to File Guide"><h3>Intent to File</h3><p>Understand when an ITF may preserve an effective date.</p></a>
+<a href="https://www.va.gov/decision-reviews/" target="_blank" data-track="Decision Reviews"><h3>Decision reviews</h3><p>HLR, Supplemental Claim, or Board Appeal.</p></a>
+<a href="https://www.va.gov/disability/va-claim-exam/" target="_blank" data-track="C&P Exam Guide"><h3>C&amp;P exams</h3><p>What a VA claim exam is and what to expect.</p></a>
+<a href="https://www.va.gov/education/" target="_blank" data-track="VA Education"><h3>Education</h3><p>GI Bill and training benefits.</p></a>
+<a href="https://www.va.gov/housing-assistance/home-loans/" target="_blank" data-track="VA Home Loans"><h3>VA home loans</h3><p>Eligibility, COEs, loans and housing grants.</p></a>
+</div></div></section>
+
+<section class="section tiktok-section" id="latest"><div class="shell">
+<div class="section-heading"><div><span class="kicker">LATEST FROM THE VETERAN FILE</span><h2>Watch on TikTok.</h2></div><p>Embedded directly from your official creator profile. Visitors can watch posts without hunting for your account.</p></div>
+<div class="tiktok-wrap">
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@the.veteran.file" data-unique-id="the.veteran.file" data-embed-type="creator" style="max-width:780px;min-width:288px"><section><a target="_blank" href="https://www.tiktok.com/@the.veteran.file?refer=creator_embed">@the.veteran.file</a></section></blockquote>
+</div>
+<a class="btn primary" href="https://www.tiktok.com/@the.veteran.file" target="_blank" data-track="TikTok Profile">Open @the.veteran.file ↗</a>
+</div></section>
+
+<section class="section state" id="states"><div class="shell">
+<div class="section-heading"><div><span class="kicker">STATE BENEFITS</span><h2>Federal benefits aren't the whole story.</h2></div><p>South Carolina is our first featured state.</p></div>
+<div class="state-card"><div class="sc">SC</div><div><h3>South Carolina veteran resources</h3><p>Claims assistance, county offices, education, employment, housing, tax and other state resources.</p>
+<div class="state-links"><a href="https://scdva.sc.gov/" target="_blank" data-track="SCDVA Home">SCDVA home →</a><a href="https://scdva.sc.gov/benefits-claims" target="_blank" data-track="SC Benefits and Claims">Benefits & claims →</a><a href="https://scdva.sc.gov/claims-assistance" target="_blank" data-track="SC Claims Assistance">Claims assistance →</a></div></div></div>
+</div></section>
+
+
+<section class="section policy-section" id="policies"><div class="shell">
+<div class="section-heading"><div><span class="kicker">PRIVACY & ACCESSIBILITY</span><h2>Built to be useful without asking for sensitive Veteran information.</h2></div><p>We keep the resource finder simple: no VA login, claim number, Social Security number, or medical information is required to search public resources.</p></div>
+<div class="policy-grid">
+  <article>
+    <h3>Privacy</h3>
+    <p>The Veteran File uses Google Analytics to understand general site traffic and resource usage. Analytics may collect technical information such as device type, browser, approximate location, referral source, and pages or buttons used.</p>
+    <p>The resource finder does not require a name, VA claim number, Social Security number, health information, or VA.gov credentials. ZIP searches are used to find public resources and are not intentionally sent to Google Analytics as a custom event value.</p>
+    <p>Third-party links, including VA.gov and TikTok, have their own privacy practices.</p>
+  </article>
+  <article>
+    <h3>Accessibility commitment</h3>
+    <p>The Veteran File is designed with accessible labels, keyboard-friendly navigation, visible focus states, readable contrast, responsive layouts, and descriptive image text. We are continuing to review the site for accessibility improvements.</p>
+    <p>If you have difficulty using any part of the site, please use the official VA links provided throughout the site while we work to improve accessibility.</p>
+    <p><strong>This statement describes our current accessibility efforts and is not a certification of full Section 508 compliance.</strong></p>
+  </article>
+</div>
+</div></section>
+<section class="section about"><div class="shell about-grid"><div><span class="kicker">ABOUT</span><h2>A cleaner front door to veteran resources.</h2></div><div><p>The Veteran File organizes official links and trusted starting points for veterans, service members, families and caregivers.</p><div class="notice"><strong>Independent website.</strong> The Veteran File is not the U.S. Department of Veterans Affairs and is not affiliated with or endorsed by VA. Information is educational and navigational, not legal or medical advice.</div></div></div></section>
+</main>
+
+<footer><div class="shell"><img src="assets/logo.png" alt="The Veteran File eagle and American flag logo"><p>Helping veterans find the right place to start.</p><p><a href="#policies">Privacy & Accessibility</a> · <a href="https://www.va.gov/find-locations/" target="_blank" rel="noopener">Official VA Facility Locator</a></p><p>© <span id="year"></span> The Veteran File.</p></div></footer>
+<div class="toast" id="toast"></div>
+<script async src="https://www.tiktok.com/embed.js"></script><script src="script.js"></script>
+</body></html>
