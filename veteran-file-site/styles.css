@@ -434,3 +434,12 @@ footer .muted,
 #states .state-card small {
   color: #536176 !important;
 }
+
+/* Exact State Benefits contrast fixes */
+#states .section-heading > p {
+  color: #536176 !important;
+}
+
+#states .state-card p {
+  color: #B4C0D1 !important;
+}
