@@ -479,12 +479,23 @@ window.STATE_BENEFITS_DATA = {
     "intro": "South Carolina offers significant benefits for Veterans and eligible family members, including property-tax exemptions, education benefits, employment assistance, Veterans homes, burial benefits, hunting and fishing privileges, and free claims assistance. Eligibility varies by benefit, so always verify current requirements with the official agency.",
     "benefits": [
       {
-        "category": "Taxes",
-        "title": "Disabled Veteran Property Tax Exemption",
-        "summary": "Qualifying Veterans who are permanently and totally disabled due to service-connected disabilities may qualify for a property-tax exemption on their home and up to five acres of land, as well as up to two private passenger vehicles. Eligibility is determined under South Carolina law and administered through the South Carolina Department of Revenue.",
-        "source": "South Carolina Department of Revenue",
-        "url": "https://dor.sc.gov/property/exempt-property",
-        "cta": "Check property-tax eligibility"
+  "category": "Taxes",
+  "title": "Disabled Veteran Property Tax Exemption",
+
+  "summary": "Qualifying disabled Veterans may receive a South Carolina property-tax exemption on their home and certain vehicles.",
+
+  "eligibility": "Generally, this benefit applies to qualifying Veterans who have been determined permanently and totally disabled from a service-connected disability. Additional South Carolina eligibility requirements apply.",
+
+  "benefit": "Qualifying Veterans may receive an exemption on their primary residence and up to five acres of land. The exemption may also apply to up to two qualifying private passenger vehicles.",
+
+  "howToApply": "Apply through the South Carolina Department of Revenue. Review the current exemption requirements and application process before submitting your request.",
+
+  "documents": "Be prepared to provide documentation establishing your Veteran status, qualifying service-connected disability, property ownership or residency, and any other documentation requested by the South Carolina Department of Revenue.",
+
+  "source": "South Carolina Department of Revenue",
+  "url": "https://dor.sc.gov/property/exempt-property",
+  "cta": "Check official eligibility"
+},
       },
       {
         "category": "Taxes",
