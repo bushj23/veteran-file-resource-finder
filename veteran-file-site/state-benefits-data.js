@@ -496,7 +496,6 @@ window.STATE_BENEFITS_DATA = {
   "url": "https://dor.sc.gov/property/exempt-property",
   "cta": "Check official eligibility"
 },
-      },
       {
         "category": "Taxes",
         "title": "Military Retirement Pay Tax Exemption",
