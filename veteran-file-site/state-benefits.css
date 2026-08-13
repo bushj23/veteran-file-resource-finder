@@ -40,22 +40,41 @@
   .state-hero{padding:52px 0}
   .benefit-grid{grid-template-columns:1fr}
 }
-/* Fix oversized logos on State Benefits page */
+/* State Benefits logo sizing */
 .site-header .brand img {
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
+  width: 42px !important;
+  height: 42px !important;
+  max-width: 42px !important;
+  min-width: 42px !important;
+  object-fit: contain !important;
+  display: block;
 }
 
 footer img {
-  width: 72px;
-  height: auto;
-  object-fit: contain;
+  width: 72px !important;
+  height: auto !important;
+  max-width: 72px !important;
+  object-fit: contain !important;
+  display: block;
 }
-/* Prevent any image from overflowing its container */
+
+/* Prevent content images from overflowing */
 .state-hero img,
-.state-selector-card img,
-footer img,
-.site-header img {
+.state-selector-card img {
   max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 750px) {
+  .site-header .brand img {
+    width: 38px !important;
+    height: 38px !important;
+    max-width: 38px !important;
+    min-width: 38px !important;
+  }
+
+  footer img {
+    width: 64px !important;
+    max-width: 64px !important;
+  }
 }
