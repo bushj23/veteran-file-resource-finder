@@ -479,3 +479,77 @@ footer small {
 #states .state-card small {
   color: #c7d2e0 !important;
 }
+/* The Veteran File Guides */
+
+.veteran-guides {
+  background: #f7f9fc;
+}
+
+.veteran-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.veteran-guide-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #dfe6ef;
+  border-radius: 18px;
+  padding: 26px;
+  text-decoration: none;
+  color: #0b1730;
+  box-shadow: 0 8px 24px rgba(16,32,64,.06);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+a.veteran-guide-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(16,32,64,.12);
+}
+
+a.veteran-guide-card:focus-visible {
+  outline: 3px solid #c9142f;
+  outline-offset: 3px;
+}
+
+.guide-label {
+  color: #c9142f;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .07em;
+}
+
+.veteran-guide-card h3 {
+  font-size: 25px;
+  margin: 9px 0 10px;
+}
+
+.veteran-guide-card p {
+  color: #536176;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+.guide-link {
+  margin-top: auto;
+  color: #9f1427;
+  font-weight: 900;
+}
+
+.guide-coming-soon {
+  background: #eef3f9;
+}
+
+.guide-soon {
+  margin-top: auto;
+  color: #536176;
+  font-weight: 800;
+}
+
+@media(max-width:700px) {
+  .veteran-guide-grid {
+    grid-template-columns: 1fr;
+  }
+}
