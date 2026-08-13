@@ -1,11 +1,13 @@
-# The Veteran File — V2 + GA4 + Native Mobile Menu Fix
+# The Veteran File — Current Build + GA4
 
-This build replaces the JavaScript-dependent top-right mobile menu with a native HTML `<details>` menu.
+Includes the working mobile menu and Google Analytics 4.
 
-Why this is more reliable:
-- The Menu button opens even if JavaScript fails.
-- It is touch-friendly on iPhone and Android.
-- It keeps desktop navigation unchanged.
-- GA4 remains installed with Measurement ID `G-9SM2Y9CTRG`.
+Measurement ID: `G-9SM2Y9CTRG`
 
-Deploy by replacing the files inside the existing `veteran-file-site` folder in GitHub.
+Tracked:
+- page views
+- `resource_click`
+- `wizard_choice`
+- `zip_search_used`
+
+The actual ZIP code is not sent to Analytics.
