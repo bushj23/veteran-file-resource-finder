@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>State Veteran Benefits | The Veteran File</title>
+  <meta name="description" content="Find state-specific Veteran benefits, tax exemptions, education programs, employment resources, claims help, housing support, and more.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="styles.css?v=20260813-1">
+  <link rel="stylesheet" href="state-benefits.css?v=1">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="shell nav-wrap">
+    <a class="brand" href="index.html#top">
+      <img src="assets/logo.png" alt="The Veteran File eagle and American flag logo">
+      <div><strong>The Veteran File</strong><span>Resource Finder</span></div>
+    </a>
+    <a class="mobile-direct-link" href="index.html#finder">Find Help</a>
+    <nav id="mainNav" aria-label="Primary navigation">
+      <a href="index.html#finder">Find Help</a>
+      <a href="index.html#start">Where Do I Start?</a>
+      <a href="index.html#benefits">Benefits</a>
+      <a href="state-benefits.html" aria-current="page">State Benefits</a>
+      <a href="medical-resources.html">Medical Resources</a>
+      <a href="index.html#latest">Latest TikTok</a>
+      <a class="nav-cta" href="https://www.tiktok.com/@the.veteran.file" target="_blank" rel="noopener">TikTok ↗</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="mobile-quick-nav" aria-label="Mobile quick navigation">
+  <a href="index.html#finder">Find Help</a>
+  <a href="index.html#start">Start</a>
+  <a href="index.html#benefits">Benefits</a>
+  <a href="state-benefits.html" aria-current="page">States</a>
+  <a href="medical-resources.html">Medical</a>
+</nav>
+
+<main id="main-content">
+  <section class="state-hero">
+    <div class="shell state-hero-grid">
+      <div>
+        <span class="kicker">STATE VETERAN BENEFITS</span>
+        <h1>Federal benefits aren't the whole story.</h1>
+        <p>Choose a state to find official starting points for state-specific Veteran benefits, tax programs, education, employment, housing, claims assistance, and more.</p>
+      </div>
+      <div class="state-selector-card">
+        <label for="stateSelect"><strong>Select your state</strong></label>
+        <select id="stateSelect" aria-describedby="stateSelectHelp">
+          <option value="">Choose a state…</option>
+        </select>
+        <p id="stateSelectHelp">All 50 states are included in the directory framework. Pages are published as benefits are researched and verified.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="stateContent">
+    <div class="shell">
+      <div id="stateEmpty" class="state-empty">
+        <span class="kicker">CHOOSE A STATE</span>
+        <h2>Start with your state of residence.</h2>
+        <p>Select a state above to view its Veteran benefit resources.</p>
+      </div>
+
+      <div id="statePublished" hidden>
+        <div class="state-page-heading">
+          <div>
+            <span class="kicker" id="stateAbbr"></span>
+            <h2 id="stateName"></h2>
+            <p id="stateIntro"></p>
+          </div>
+          <div class="state-review">
+            <strong>Official source first</strong>
+            <a id="stateAgencyLink" target="_blank" rel="noopener"></a>
+            <small id="lastReviewed"></small>
+          </div>
+        </div>
+
+        <div class="benefit-filter-row" aria-label="Benefit categories">
+          <button class="benefit-filter active" type="button" data-category="">All benefits</button>
+          <button class="benefit-filter" type="button" data-category="Taxes">Taxes</button>
+          <button class="benefit-filter" type="button" data-category="Education">Education</button>
+          <button class="benefit-filter" type="button" data-category="Claims Assistance">Claims Help</button>
+          <button class="benefit-filter" type="button" data-category="Employment">Employment</button>
+          <button class="benefit-filter" type="button" data-category="Housing">Housing</button>
+        </div>
+
+        <div id="benefitGrid" class="benefit-grid"></div>
+
+        <div class="state-disclaimer">
+          <strong>Verify before relying on a benefit.</strong>
+          <p>State laws, eligibility rules, funding, and application procedures can change. The Veteran File summarizes official starting points and links to government sources for current eligibility and application details.</p>
+        </div>
+      </div>
+
+      <div id="stateComingSoon" class="state-coming-soon" hidden>
+        <span class="kicker">RESEARCH IN PROGRESS</span>
+        <h2 id="comingSoonName"></h2>
+        <p>This state is already built into the directory, but its benefit guide has not been published yet. We won't fill pages with unverified or generic benefit claims just to have 50 pages online.</p>
+        <a class="btn primary" href="index.html#states">Use current state resources</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell">
+    <img src="assets/logo.png" alt="The Veteran File eagle and American flag logo">
+    <p>Helping Veterans find the right place to start.</p>
+    <p><a href="index.html#policies">Privacy & Accessibility</a> · <a href="index.html">Resource Finder</a></p>
+    <p>© <span id="year"></span> The Veteran File.</p>
+  </div>
+</footer>
+
+<script src="state-benefits-data.js?v=1"></script>
+<script src="state-benefits.js?v=1"></script>
+</body>
+</html>

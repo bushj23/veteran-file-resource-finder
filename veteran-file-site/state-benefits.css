@@ -1,0 +1,42 @@
+
+.state-hero{
+  background:radial-gradient(circle at 80% 20%,rgba(33,79,132,.75),transparent 34%),linear-gradient(135deg,#06152d,#0b254c);
+  color:#fff;
+  padding:72px 0;
+}
+.state-hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:44px;align-items:center}
+.state-hero h1{font-size:clamp(40px,5vw,64px);line-height:1.04;letter-spacing:-.04em;margin:12px 0 18px}
+.state-hero p{color:#d5dfec;font-size:18px;max-width:780px}
+.state-selector-card{background:#fff;color:#0b1730;border-radius:20px;padding:24px;box-shadow:0 26px 60px rgba(0,0,0,.28)}
+.state-selector-card label{display:block;margin-bottom:8px}
+.state-selector-card select{width:100%;min-height:50px;border:1px solid #c7d2df;border-radius:10px;background:#fff;color:#0b1730;padding:10px 12px;font-size:16px}
+.state-selector-card p{color:#536176;font-size:13px;margin-bottom:0}
+.state-empty,.state-coming-soon{text-align:center;padding:60px 20px;max-width:760px;margin:auto}
+.state-empty p,.state-coming-soon p{color:#536176}
+.state-page-heading{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:start;margin-bottom:24px}
+.state-page-heading h2{font-size:clamp(34px,4vw,50px);margin:7px 0 10px}
+.state-page-heading p{color:#536176}
+.state-review{background:#eef3f9;border:1px solid #dbe3ed;border-radius:14px;padding:18px}
+.state-review strong,.state-review a,.state-review small{display:block}
+.state-review a{margin:7px 0;color:#9f1427;font-weight:900}
+.state-review small{color:#536176}
+.benefit-filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.benefit-filter{border:1px solid #c9d4e1;border-radius:999px;background:#fff;color:#0b1730;padding:9px 13px;font-weight:850;cursor:pointer}
+.benefit-filter.active{background:#071a38;color:#fff;border-color:#071a38}
+.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.benefit-card{background:#fff;border:1px solid #dfe6ef;border-radius:16px;padding:21px;box-shadow:0 8px 24px rgba(16,32,64,.05);display:flex;flex-direction:column}
+.benefit-category{font-size:11px;font-weight:950;letter-spacing:.05em;color:#c9142f}
+.benefit-card h3{font-size:20px;margin:8px 0}
+.benefit-card p{color:#536176}
+.benefit-source{margin-top:auto;padding-top:12px;font-size:12px;color:#536176}
+.benefit-card a{font-weight:900;color:#9f1427}
+.state-disclaimer{margin-top:24px;background:#fff5f6;border:1px solid #edc6cb;border-radius:14px;padding:18px;color:#5d2630}
+.state-disclaimer p{margin-bottom:0}
+@media(max-width:850px){
+  .state-hero-grid,.state-page-heading{grid-template-columns:1fr}
+  .benefit-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .state-hero{padding:52px 0}
+  .benefit-grid{grid-template-columns:1fr}
+}
